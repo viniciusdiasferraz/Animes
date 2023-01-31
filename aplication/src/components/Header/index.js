@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./style";
 
-function Sidebar(){
+function Header(){
     return(
         <S.Container>
             <S.Icon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlaESEcIJwR5DOmd7DzGqo-dFsUkFf89CCx4jLsAyc1GhFtwjFwQy7O3ruN_3ilcdk8bU&usqp=CAU "/>
@@ -16,4 +16,4 @@ function Sidebar(){
     )
 }
 
-export default Sidebar
+export default Header
