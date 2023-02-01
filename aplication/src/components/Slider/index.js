@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable react/prop-types */
 import React from "react";
 import * as S from "./styles";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,20 +16,20 @@ export default function Sliders({ settings, children }) {
         {...settings}
       >
         {children}
-        <div className={styles.container}>
-          <SwiperSlide className={styles.single}>
-            <img src="https://images5.alphacoders.com/104/1046568.jpg" />
+        <S.Container>
+          <SwiperSlide >
+            <S.Singleimg src="https://images5.alphacoders.com/104/1046568.jpg" />
           </SwiperSlide>
-          <SwiperSlide className={styles.single}>
-            <img src="https://2.bp.blogspot.com/-j89YHwyM_vs/XLdT42TJehI/AAAAAAAABqY/Wecpzuf5ExMf_AL7NyHvOS8lw32mROYIgCKgBGAs/w0/saitama-one-punch-man-uhdpaper.com-4K-9.jpg" />
+          <SwiperSlide >
+            <S.Singleimg src="https://2.bp.blogspot.com/-j89YHwyM_vs/XLdT42TJehI/AAAAAAAABqY/Wecpzuf5ExMf_AL7NyHvOS8lw32mROYIgCKgBGAs/w0/saitama-one-punch-man-uhdpaper.com-4K-9.jpg" />
           </SwiperSlide>
-          <SwiperSlide className={styles.single}>
-            <img src="https://my4kwallpapers.com/wp-content/uploads/2020/10/Naruto-Desktop-Wallpaper-1024x576.png" />
+          <SwiperSlide >
+            <S.Singleimg src="https://my4kwallpapers.com/wp-content/uploads/2020/10/Naruto-Desktop-Wallpaper-1024x576.png" />
           </SwiperSlide>
-          <SwiperSlide className={styles.single}>
-            <img src="https://images3.alphacoders.com/716/716813.png" />
+          <SwiperSlide>
+            <S.Singleimg src="https://images3.alphacoders.com/716/716813.png" />
           </SwiperSlide>
-        </div>
+        </S.Container>
       </Swiper>
     </>
   );
