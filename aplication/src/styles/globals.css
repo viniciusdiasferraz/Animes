@@ -33,7 +33,7 @@ a {
   }
 }
 
-/*teste */
+
   
   .swiper {
     width: 100%;
@@ -45,12 +45,16 @@ a {
     text-align: center;
     font-size: 18px;
     background: #fff;
+ 
     
   
     /* Center slide text vertically */
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    color: black;
+    border-radius: 15px;
+    cursor: pointer;
   }
   
   .swiper-slide img {

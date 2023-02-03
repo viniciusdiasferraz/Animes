@@ -6,11 +6,22 @@ background-color: black;
 display: flex;
 justify-content: space-between;
 padding: 0.5em;
+box-shadow: 0 0 20px 3px;
+> svg {
+    position: fixed;
+    color: white;
+    width: 30px;
+    height: 30px;
+    margin-top: 32px;
+    margin-left: 32px;
+    cursor: pointer;
+  }
 `
 
 export const Icon = styled.img`
 width: 8em;
 border-radius: 10em;
+margin-left:5em
 `
 
 export const Containerbuttons = styled.div`
@@ -46,8 +57,8 @@ export const Imput = styled.input`
     }
     &::placeholder{
         color: black;
-    }
-`
+    }`
+
 
 
 

@@ -8,18 +8,18 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 export default function Home() {
-  const [answer, setAnswer] = useState();
+  const [requestAnime, setRequestAnime] = useState();
   const [answer1, setAnswer1] = useState();
-  const [answer2, setAnswer2] = useState();
+  const [requestManga, setRequestManga] = useState();
 
   const anime = () => {
     axios
       .get("https://kitsu.io/api/edge/categories/1/anime")
       .then((response) => {
-        setAnswer(response.data.data);
+        setRequestAnime(response.data.data);
       });
   };
-  console.log(answer, "answer");
+  console.log(requestAnime, "requestAnime");
 
   // const drama = () =>{
   // 	axios.get('https://kitsu.io/api/edge/categories/1/relationships/drama').then((response) => {
@@ -31,12 +31,12 @@ export default function Home() {
     axios
       .get("https://kitsu.io/api/edge/categories/1/manga")
       .then((response) => {
-        setAnswer2(response.data);
+        setRequestManga(response.data.data);
       });
   };
 
   // console.log(resposta1, "resposta1");
-  //   console.log(answer2, "resposta2");
+  //   console.log(requestManga, "requestManga");
 
   useEffect(() => {
     anime();
@@ -69,26 +69,47 @@ export default function Home() {
       <Header />
       <Slider settings={settings} />
 
-      {answer &&
-        answer.map((item) => {
+      <Swiper
+        slidesPerView={3}
+        spaceBetween={30}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
+      >
+      {requestAnime &&
+        requestAnime.map((item) => {
           return (
-            <div key={item.id}>
-              <Swiper
-                slidesPerView={3}
-                spaceBetween={30}
-                pagination={{
-                  clickable: true,
-                }}
-                modules={[Pagination]}
-              >
+            < >
                 <SwiperSlide>
                   <p>{item?.attributes?.canonicalTitle}</p>
                   <img src={item?.attributes?.posterImage.small} />
                 </SwiperSlide>
-              </Swiper>
-            </div>
+            </>
           );
         })}
+        </Swiper>
+
+        <Swiper
+        slidesPerView={3}
+        spaceBetween={30}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
+      >
+      {requestManga &&
+        requestManga.map((item) => {
+          return (
+            < >
+                <SwiperSlide>
+                  <p>{item?.attributes?.canonicalTitle}</p>
+                  <img src={item?.attributes?.posterImage.small} />
+                </SwiperSlide>
+            </>
+          );
+        })}
+        </Swiper>
     </>
   );
 }
