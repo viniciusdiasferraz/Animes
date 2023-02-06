@@ -6,11 +6,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import Router from "next/router";
 
 export default function Home() {
   const [requestAnime, setRequestAnime] = useState();
-  const [answer1, setAnswer1] = useState();
   const [requestManga, setRequestManga] = useState();
+  const [answer1, setAnswer1] = useState();
 
   const anime = () => {
     axios
@@ -21,34 +22,36 @@ export default function Home() {
   };
   console.log(requestAnime, "requestAnime");
 
+  
+  const manga = () => {
+    axios
+    .get("https://kitsu.io/api/edge/categories/1/manga")
+    .then((response) => {
+      setRequestManga(response.data.data);
+    });
+  };
+  
+  useEffect(() => {
+    anime();
+  }, []);
+  
+  useEffect(() => {
+    manga();
+  }, []);
+
+  
+
   // const drama = () =>{
   // 	axios.get('https://kitsu.io/api/edge/categories/1/relationships/drama').then((response) => {
   // 		setAnswer1(response.data);
   // 	});
   // }
-
-  const manga = () => {
-    axios
-      .get("https://kitsu.io/api/edge/categories/1/manga")
-      .then((response) => {
-        setRequestManga(response.data.data);
-      });
-  };
-
   // console.log(resposta1, "resposta1");
   //   console.log(requestManga, "requestManga");
-
-  useEffect(() => {
-    anime();
-  }, []);
-
   //   useEffect(() => {
   // 	drama();
   //   }, []);
 
-  useEffect(() => {
-    manga();
-  }, []);
 
   const settings = {
     spaceBetween: 0,
@@ -77,20 +80,20 @@ export default function Home() {
         }}
         modules={[Pagination]}
       >
-      {requestAnime &&
-        requestAnime.map((item) => {
-          return (
-            < >
-                <SwiperSlide>
+        {requestAnime &&
+          requestAnime.map((item) => {
+            return (
+              <>
+                <SwiperSlide  onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)}>
                   <p>{item?.attributes?.canonicalTitle}</p>
                   <img src={item?.attributes?.posterImage.small} />
                 </SwiperSlide>
-            </>
-          );
-        })}
-        </Swiper>
+              </>
+            );
+          })}
+      </Swiper>
 
-        <Swiper
+      <Swiper
         slidesPerView={3}
         spaceBetween={30}
         pagination={{
@@ -98,18 +101,21 @@ export default function Home() {
         }}
         modules={[Pagination]}
       >
-      {requestManga &&
-        requestManga.map((item) => {
-          return (
-            < >
-                <SwiperSlide>
-                  <p>{item?.attributes?.canonicalTitle}</p>
-                  <img src={item?.attributes?.posterImage.small} />
+        {requestManga &&
+          requestManga.map((item) => {
+            return (
+              <>
+                <SwiperSlide >
+                  <p  >{item?.attributes?.canonicalTitle}</p>
+                  <img
+                    src={item?.attributes?.posterImage.small}
+                    
+                  />
                 </SwiperSlide>
-            </>
-          );
-        })}
-        </Swiper>
+              </>
+            );
+          })}
+      </Swiper>
     </>
   );
 }
