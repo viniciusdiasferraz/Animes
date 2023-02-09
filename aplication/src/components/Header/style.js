@@ -6,9 +6,8 @@ background-color: black;
 display: flex;
 justify-content: space-between;
 padding: 0.5em;
-box-shadow: 0 0 20px 3px;
 > svg {
-    position: fixed;
+    position: absolute;
     color: white;
     width: 30px;
     height: 30px;
@@ -21,7 +20,8 @@ box-shadow: 0 0 20px 3px;
 export const Icon = styled.img`
 width: 8em;
 border-radius: 10em;
-margin-left:5em
+margin-left:5em;
+cursor:pointer;
 `
 
 export const Containerbuttons = styled.div`

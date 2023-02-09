@@ -3,6 +3,8 @@ import * as S from "./style";
 import { FaBars } from 'react-icons/fa'
 import {useState} from "react"
 import Sidebar from '../Sidebar'
+import Router from "next/router";
+
 
 function Header() {
     const [sidebar, setSidebar] = useState(false)
@@ -12,7 +14,7 @@ function Header() {
         <S.Container>
             <FaBars onClick={showSiderbar} />
             {sidebar && <Sidebar active={setSidebar} />}
-            <S.Icon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlaESEcIJwR5DOmd7DzGqo-dFsUkFf89CCx4jLsAyc1GhFtwjFwQy7O3ruN_3ilcdk8bU&usqp=CAU " />
+            <S.Icon   onClick={()=>window.location.href = 'http://localhost:3000/'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlaESEcIJwR5DOmd7DzGqo-dFsUkFf89CCx4jLsAyc1GhFtwjFwQy7O3ruN_3ilcdk8bU&usqp=CAU " />
             <S.Containerbuttons>
                 <S.Button>Mais vistos</S.Button>
                 <S.Button>Melhores</S.Button>

@@ -10,8 +10,7 @@ import Router from "next/router";
 
 export default function Home() {
   const [requestAnime, setRequestAnime] = useState();
-  const [requestManga, setRequestManga] = useState();
-  const [answer1, setAnswer1] = useState();
+
 
   const anime = () => {
     axios
@@ -22,35 +21,9 @@ export default function Home() {
   };
   console.log(requestAnime, "requestAnime");
 
-  
-  const manga = () => {
-    axios
-    .get("https://kitsu.io/api/edge/categories/1/manga")
-    .then((response) => {
-      setRequestManga(response.data.data);
-    });
-  };
-  
   useEffect(() => {
     anime();
   }, []);
-  
-  useEffect(() => {
-    manga();
-  }, []);
-
-  
-
-  // const drama = () =>{
-  // 	axios.get('https://kitsu.io/api/edge/categories/1/relationships/drama').then((response) => {
-  // 		setAnswer1(response.data);
-  // 	});
-  // }
-  // console.log(resposta1, "resposta1");
-  //   console.log(requestManga, "requestManga");
-  //   useEffect(() => {
-  // 	drama();
-  //   }, []);
 
 
   const settings = {
@@ -71,7 +44,7 @@ export default function Home() {
     <>
       <Header />
       <Slider settings={settings} />
-
+      <p>Animes</p>
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
@@ -84,7 +57,7 @@ export default function Home() {
           requestAnime.map((item) => {
             return (
               <>
-                <SwiperSlide  onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)}>
+                <SwiperSlide onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)}>
                   <p>{item?.attributes?.canonicalTitle}</p>
                   <img src={item?.attributes?.posterImage.small} />
                 </SwiperSlide>
@@ -92,30 +65,9 @@ export default function Home() {
             );
           })}
       </Swiper>
+      <a onClick={() =>  Router.push(`/AllAnimes`)}>Ver mais animes</a>
 
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-      >
-        {requestManga &&
-          requestManga.map((item) => {
-            return (
-              <>
-                <SwiperSlide >
-                  <p  >{item?.attributes?.canonicalTitle}</p>
-                  <img
-                    src={item?.attributes?.posterImage.small}
-                    
-                  />
-                </SwiperSlide>
-              </>
-            );
-          })}
-      </Swiper>
+
     </>
   );
 }

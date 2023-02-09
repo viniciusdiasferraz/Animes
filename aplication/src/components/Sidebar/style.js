@@ -11,7 +11,7 @@ left: ${props => props.sidebar ? '0' : '-100%'};
 animation: showSidebar .4s;
 z-index: 2;
 > svg {
-  position: fixed;
+  position: absolute;
   color: white;
   width: 30px;
   height: 30px;
