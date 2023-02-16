@@ -14,7 +14,7 @@ export default function Home() {
 
   const anime = () => {
     axios
-      .get("https://kitsu.io/api/edge/categories/1/anime")
+      .get("https://kitsu.io/api/edge/anime?")
       .then((response) => {
         setRequestAnime(response.data.data);
       });
@@ -44,7 +44,7 @@ export default function Home() {
     <>
       <Header />
       <Slider settings={settings} />
-      <p>Animes</p>
+      <h1>Animes</h1>
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
@@ -59,7 +59,7 @@ export default function Home() {
               <>
                 <SwiperSlide onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)}>
                   <p>{item?.attributes?.canonicalTitle}</p>
-                  <img src={item?.attributes?.posterImage.small} />
+                  <img src={item?.attributes?.posterImage.original} />
                 </SwiperSlide>
               </>
             );
