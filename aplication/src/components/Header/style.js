@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
+
+export const Logo = styled.img`
+`
+
 export const Container = styled.div`
-height: 5rem;
-background-color: black;
-display: flex;
-justify-content: space-between;
+background-image:  url("./banner.png") ;
+background-repeat: no-repeat;
+background-size: auto;
+height: 30rem;
 padding: 0.5em;
 > svg {
     position: absolute;
@@ -17,47 +21,56 @@ padding: 0.5em;
   }
 `
 
-export const Icon = styled.img`
-width: 8em;
-border-radius: 10em;
-margin-left:5em;
-cursor:pointer;
-`
+export const Containerimput = styled.div`
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 1em;
+ `
 
-export const Containerbuttons = styled.div`
-    display: flex;
-    align-items: center;
-    width: 30em;
-    justify-content: space-evenly;
-`
-
-export const Button = styled.button`
-    width: 8.5em;
-    height: 3em;
-    background-color: transparent;
-    border-radius: 1em;
-    color: white;
-    cursor: pointer;
-    &:hover {
-        background: red;
-    }
-
-`
 export const Imput = styled.input`
+     height: 2.4em;
+     border: 1px solid #FFFFFF;
+     outline:none;
+     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+     border-radius: 10px;
+     background-color: transparent;
+     color: white;
+     &:hover {
+         ::placeholder{
+             color: white;
+         }
+     }
+     &::placeholder{
+         color: white;
+         font-weight: 300;
+     }`
+
+
+export const Textcontainer = styled.div`
+    color: white;
+    font-size: 4em;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     height: 3em;
-    border-radius: 0.6em;
-    outline: none;
-    border: none;
-    margin: auto 0;
-    &:hover {
-        background: red;
-        ::placeholder{
-            color: white;
-        }
-    }
-    &::placeholder{
-        color: black;
-    }`
+    justify-content: flex-end;
+`
+
+export const paragraphone = styled.div`
+span{
+    color: #F46D1B;
+}
+`
+
+export const paragraphtwo = styled.div`
+span{
+    color: #34AC40;
+}
+`
+
 
 
 

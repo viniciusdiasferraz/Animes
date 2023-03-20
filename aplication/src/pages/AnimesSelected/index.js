@@ -1,9 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import * as S from "./style";
+
 
 export default function AnimesSelected() {
-    const [answer, setAnswer] = useState();
+    const [animeSelected, setAnimeSelected] = useState();
 
     let url;
     let characterId;
@@ -19,20 +23,28 @@ export default function AnimesSelected() {
                 `https://kitsu.io/api/edge/anime/${characterId}`
             )
             .then((response) => {
-                setAnswer(response?.data?.data);
+                setAnimeSelected(response?.data?.data);
             });
     };
 
-    useEffect(() => { 
+    useEffect(() => {
         selectAnime();
     }, []);
 
 
-    console.log(answer, "resposta");
+    console.log(animeSelected, "resposta");
 
     return (
         <>
-            Ola
+            <Header />
+            <S.Img src={animeSelected?.attributes?.coverImage.small} />
+            <S.Text>{animeSelected?.attributes?.canonicalTitle}</S.Text>
+            <S.Text>{animeSelected?.attributes?.synopsis}</S.Text>
+            <S.Img src={animeSelected?.attributes?.posterImage.small} />
+            <S.Text>{animeSelected?.attributes?.averageRating}</S.Text>
+            <S.Text>{animeSelected?.attributes?.popularityRank}</S.Text>
+            <S.Text>{animeSelected?.attributes?.ratingRank}</S.Text>
+            <Footer />
         </>
     )
 }

@@ -1,27 +1,26 @@
 import React from "react";
 import * as S from "./style";
-import { FaBars } from 'react-icons/fa'
-import {useState} from "react"
-import Sidebar from '../Sidebar'
-import Router from "next/router";
+import { BiSearch } from 'react-icons/fa';
+
+
 
 
 function Header() {
-    const [sidebar, setSidebar] = useState(false)
 
-    const showSiderbar = () => setSidebar(!sidebar)
+
     return (
-        <S.Container>
-            <FaBars onClick={showSiderbar} />
-            {sidebar && <Sidebar active={setSidebar} />}
-            <S.Icon   onClick={()=>window.location.href = 'http://localhost:3000/'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlaESEcIJwR5DOmd7DzGqo-dFsUkFf89CCx4jLsAyc1GhFtwjFwQy7O3ruN_3ilcdk8bU&usqp=CAU " />
-            <S.Containerbuttons>
-                <S.Button>Mais vistos</S.Button>
-                <S.Button>Melhores</S.Button>
-                <S.Button>Mais Procurados</S.Button>
-                <S.Button>Mais Visitados</S.Button>
-            </S.Containerbuttons>
-            <S.Imput type="search" placeholder="Busque seu anime" />
+        <S.Container  >
+            <S.Containerimput>
+                <S.Logo src="./logo.svg" />
+            </S.Containerimput>
+            <S.Textcontainer >
+                <S.paragraphone>
+                    O <span>Maior</span> Catalógo de
+                </S.paragraphone>
+                <S.paragraphtwo>
+                    <span>Anime</span> do Mundo
+                </S.paragraphtwo>
+            </S.Textcontainer>
         </S.Container>
     )
 }

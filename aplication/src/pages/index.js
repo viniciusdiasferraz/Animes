@@ -1,30 +1,48 @@
+import React, { useEffect, useState } from "react";
 import Slider from "../components/Slider";
 import Header from "../components/Header";
-import React, { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 import axios from "axios";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
-import "swiper/css";
-import "swiper/css/pagination";
 import Router from "next/router";
+import { FaBars } from 'react-icons/fa'
+import Sidebar from '../components/Sidebar'
+import AlternativeHeader from "../components/AlternativeHeader";
+
+import * as S from "../styles/style";
+
 
 export default function Home() {
-  const [requestAnime, setRequestAnime] = useState();
+  const [requestAnimePopularityRank, setRequestAnimePopularityRank] = useState();
+  const [requestAnimeAverageRating, setRequestAnimeAverageRating] = useState();
+  const [sidebar, setSidebar] = useState(false)
+  const showSiderbar = () => setSidebar(!sidebar)
 
-
-  const anime = () => {
+  const animemostpopular = () => {
     axios
-      .get("https://kitsu.io/api/edge/anime?")
+      .get("https://kitsu.io/api/edge/anime?page[limit]=5&page[offset]=0&sort=popularityRank")
       .then((response) => {
-        setRequestAnime(response.data.data);
+        setRequestAnimePopularityRank(response.data.data);
       });
   };
-  console.log(requestAnime, "requestAnime");
+  console.log(requestAnimePopularityRank, "requestAnimePopularityRank");
 
   useEffect(() => {
-    anime();
+    animemostpopular();
   }, []);
 
+
+  const animeaveragerating = () => {
+    axios
+      .get("https://kitsu.io/api/edge/anime?page[limit]=5&page[offset]=0&sort=-averageRating")
+      .then((response) => {
+        setRequestAnimeAverageRating(response.data.data);
+      });
+  };
+  console.log(requestAnimeAverageRating, "AnimeAverageRating");
+
+  useEffect(() => {
+    animeaveragerating();
+  }, []);
 
   const settings = {
     spaceBetween: 0,
@@ -41,33 +59,37 @@ export default function Home() {
   };
 
   return (
-    <>
+    <S.Container>
+      <FaBars id="icone" onClick={showSiderbar} size={60} color="#F46D1B"/>
+      {sidebar && <Sidebar active={setSidebar} />}
       <Header />
-      <Slider settings={settings} />
-      <h1>Animes</h1>
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-      >
-        {requestAnime &&
-          requestAnime.map((item) => {
+      <S.Text><span>Animes</span> Mais Populares</S.Text>
+      <S.Content>
+
+        {requestAnimePopularityRank &&
+          requestAnimePopularityRank.map((item) => {
             return (
-              <>
-                <SwiperSlide onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)}>
-                  <p>{item?.attributes?.canonicalTitle}</p>
-                  <img src={item?.attributes?.posterImage.original} />
-                </SwiperSlide>
-              </>
+              <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
             );
           })}
-      </Swiper>
-      <a onClick={() =>  Router.push(`/AllAnimes`)}>Ver mais animes</a>
+      </S.Content>
 
+      <Slider settings={settings} />
 
-    </>
+      <S.Text><span>Animes</span> Mais Bem Classificados</S.Text>
+
+      <S.Content>
+        {requestAnimeAverageRating &&
+          requestAnimeAverageRating.map((item) => {
+            return (
+              <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
+            );
+          })}
+      </S.Content>
+      <S.ContentImg>
+        <S.ImgCat src="./yuzu 3.png" />
+      </S.ContentImg>
+      <Footer />
+    </S.Container>
   );
 }

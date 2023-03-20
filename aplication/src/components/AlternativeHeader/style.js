@@ -1,0 +1,28 @@
+import styled from "styled-components";
+
+
+export const Logo = styled.img`
+`
+
+export const Container = styled.div`
+    background-color: ${props => props.background ?? 'green'};
+`
+
+export const Containerimput = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+ `
+
+export const Textcontainer = styled.div`
+    color: white;
+    font-size: 4em;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 3em;
+    justify-content: flex-end;
+`

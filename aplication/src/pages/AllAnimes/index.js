@@ -5,6 +5,7 @@ import Router from "next/router";
 import * as S from "./style";
 import Header from "../../components/Header";
 import Pagination from "../../components/Pagination/index";
+import AlternativeHeader from "../../components/AlternativeHeader"
 import qs from 'qs';
 
 
@@ -14,7 +15,7 @@ export default function AllAnimes() {
 
   const api = 'https://kitsu.io/api/edge/';
 
-  const LIMIT = 12;
+  const LIMIT = 20;
 
   console.log(requestAnime, "requestAnime");
 
@@ -38,16 +39,13 @@ export default function AllAnimes() {
 
   return (
     <>
-      <Header />
+      <AlternativeHeader background="red" conection={requestAnime}/>
       <S.Content>
         {requestAnime &&
           requestAnime?.data?.map((item) => {
             return (
-              <S.Container>
-                <div onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)}>
-                  <p>{item?.attributes?.canonicalTitle}</p>
-                  <img src={item?.attributes?.posterImage.small} />
-                </div>
+              <S.Container onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)}>
+                  <S.Img src={item?.attributes?.posterImage.small} />
               </S.Container>
             );
           })}

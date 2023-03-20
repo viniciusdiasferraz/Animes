@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-background-color: #111;
-position: fixed;
-height: 100%;
+background-color: #F46D1B;
+position: absolute;
 top: 0px;
 left: 0px;
+bottom: 0px;
 width: 300px;
 left: ${props => props.sidebar ? '0' : '-100%'};
 animation: showSidebar .4s;
@@ -18,11 +18,12 @@ z-index: 2;
   margin-top: 32px;
   margin-left: 32px;
   cursor: pointer;
+  
 }
 @keyframes showSidebar {
   from {
     opacity: 0;
-    width: 0;
+    width: 5em;
   }
   to {
     opacity: 1;
@@ -30,7 +31,20 @@ z-index: 2;
   }
 }
 `
+export const Text = styled.text`
+color: white;
+`
+
 
 export const Content = styled.div`
-  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  heigth:100vh
 `
+
+export const List = styled.ul`
+`
+export const Item = styled.li`
+color: white;
+`
+
