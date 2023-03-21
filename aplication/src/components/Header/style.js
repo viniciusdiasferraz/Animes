@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 
 export const Logo = styled.img`
+margin-left: 5.4em;
 `
 
 export const Container = styled.div`
 background-image:  url("./banner.png") ;
-background-repeat: no-repeat;
 background-size: auto;
-height: 30rem;
+height: 28.5rem;;
 padding: 0.5em;
 margin-bottom: 2em;
 > svg {

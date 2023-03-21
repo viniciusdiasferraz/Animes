@@ -6,10 +6,12 @@ export const Container = styled.div`
   top: 0px;
   left: 0px;
   bottom: 0px;
-  width: 300px;
+  width: 15em;
   left: ${props => props.sidebar ? '0' : '-100%'};
   animation: showSidebar .4s;
-  z-index: 2;
+  z-index: 2; 
+  height: 217.1vh;
+}
   }
   @keyframes showSidebar {
     from {
@@ -35,7 +37,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   heigth:100vh;
-  margin-left: 3em;
+  margin-left: 1em;
 `
 export const TextTitle = styled.text`
   color: white;

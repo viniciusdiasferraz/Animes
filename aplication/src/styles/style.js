@@ -8,7 +8,7 @@ height: 100vh;
 export const Text = styled.text`
 font-size: 1.6em;
 color: #34AC40;
-padding: 2em;
+margin-left: 4em;
 font-weight: 600;
 span{
     color:#F46D1B;
@@ -18,8 +18,15 @@ span{
 
 export const Content = styled.div`
 display: flex;
-justify-content: space-evenly;
+width: 100%;
+justify-content: center;
 margin-top: 2em;
+`
+export const InsideContent = styled.div`
+width: 85%;
+display: flex;
+justify-content: space-between;
+gap: 1.7%;
 `
 
 export const Img = styled.img`
