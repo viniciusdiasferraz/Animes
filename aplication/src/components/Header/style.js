@@ -10,6 +10,7 @@ background-repeat: no-repeat;
 background-size: auto;
 height: 30rem;
 padding: 0.5em;
+margin-bottom: 2em;
 > svg {
     position: absolute;
     color: white;

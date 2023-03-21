@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-height: 100%;
+height: 100vh;
 
 `
 
 export const Text = styled.text`
 font-size: 1.6em;
 color: #34AC40;
+padding: 2em;
+font-weight: 600;
 span{
     color:#F46D1B;
   }
@@ -16,11 +18,13 @@ span{
 
 export const Content = styled.div`
 display: flex;
-
+justify-content: space-evenly;
+margin-top: 2em;
 `
 
 export const Img = styled.img`
-
+width: 225px;
+height: 339px;
 
 `
 

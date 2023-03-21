@@ -5,8 +5,9 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import Router from "next/router";
 import { FaBars } from 'react-icons/fa'
+import { BiStar } from "react-icons/bi";
+import { AiOutlineLike } from "react-icons/ai";
 import Sidebar from '../components/Sidebar'
-import AlternativeHeader from "../components/AlternativeHeader";
 
 import * as S from "../styles/style";
 
@@ -60,12 +61,11 @@ export default function Home() {
 
   return (
     <S.Container>
-      <FaBars id="icone" onClick={showSiderbar} size={60} color="#F46D1B"/>
+      <FaBars onClick={showSiderbar} size={40} color='black' position="absolute" background='#F46D1B' width= '5em' cursor='pointer'/>
       {sidebar && <Sidebar active={setSidebar} />}
       <Header />
-      <S.Text><span>Animes</span> Mais Populares</S.Text>
+      <S.Text><BiStar color='#F46D1B'/><span>Animes</span> Mais Populares</S.Text>
       <S.Content>
-
         {requestAnimePopularityRank &&
           requestAnimePopularityRank.map((item) => {
             return (
@@ -74,9 +74,10 @@ export default function Home() {
           })}
       </S.Content>
 
-      <Slider settings={settings} />
+      {/* <Slider settings={settings} /> */}
 
-      <S.Text><span>Animes</span> Mais Bem Classificados</S.Text>
+      
+      <S.Text><AiOutlineLike color='#F46D1B'/><span>Animes</span> Mais Bem Classificados</S.Text>
 
       <S.Content>
         {requestAnimeAverageRating &&

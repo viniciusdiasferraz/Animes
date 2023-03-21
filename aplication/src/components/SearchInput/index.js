@@ -1,19 +1,31 @@
 import React, { useState } from 'react';
 
 
-const SearchInput = ({ value, onChange }) => {
-  const [displayValue, setDisplayValue] = useState(value);
+const SearchInput = ({ requestSearch }) => {
+  const [search, SetSearch] = useState("")
 
-  function handleChange(event) {
-    setDisplayValue(event.target.value);
+  const animeFiltered = () => {
+    if (search) {
+      requestSearch
+    }
+    else if (search === "") {
+      alert("Digite um Anime!")
+    }
   }
 
+  console.log(requestSearch, "pesquisa");
+  console.log(search, "search");
+
   return (
-    <input
-      type="search"
-      value={displayValue}
-      onChange={handleChange}
-    />
+    <>
+      <input
+        onChange={(e) => SetSearch(e.target.value.toLowerCase(search))}
+        type="search"
+        placeholder='Buscar'
+      />
+      <button onClick={() => { animeFiltered() }}>buscar</button>
+
+    </>
   );
 };
 

@@ -7,6 +7,8 @@ export const Content = styled.div`
   &::after{
   color: #282c34;
   margin-right: 20px;
+  height: 13em;
+  margin: 2em;
 }
 `
 

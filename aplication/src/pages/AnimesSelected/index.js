@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import * as S from "./style";
+import AlternativeHeader from "@/components/AlternativeHeader";
 
 
 export default function AnimesSelected() {
@@ -36,7 +36,7 @@ export default function AnimesSelected() {
 
     return (
         <>
-            <Header />
+            <AlternativeHeader position='absolute' />
             <S.Img src={animeSelected?.attributes?.coverImage.small} />
             <S.Text>{animeSelected?.attributes?.canonicalTitle}</S.Text>
             <S.Text>{animeSelected?.attributes?.synopsis}</S.Text>
@@ -44,6 +44,9 @@ export default function AnimesSelected() {
             <S.Text>{animeSelected?.attributes?.averageRating}</S.Text>
             <S.Text>{animeSelected?.attributes?.popularityRank}</S.Text>
             <S.Text>{animeSelected?.attributes?.ratingRank}</S.Text>
+            <S.ContentImg>
+                <S.ImgCat src="./yuzu 3.png" />
+            </S.ContentImg>
             <Footer />
         </>
     )

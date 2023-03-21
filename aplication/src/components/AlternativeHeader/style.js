@@ -2,10 +2,15 @@ import styled from "styled-components";
 
 
 export const Logo = styled.img`
+width: 8em;
 `
 
 export const Container = styled.div`
-    background-color: ${props => props.background ?? 'green'};
+    width:100%;
+    background-color: ${props => props.background ?? 'rgba(0, 0, 0, 0.9)'};
+    height: 19vh;
+    z-index: 1;
+    position: ${props => props.position ?? 'unset'};
 `
 
 export const Containerimput = styled.div`

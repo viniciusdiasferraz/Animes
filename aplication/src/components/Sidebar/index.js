@@ -1,8 +1,6 @@
 import React from 'react'
 import * as S from "./style";
-import {
-  FaTimes,
-} from 'react-icons/fa'
+import { FaList } from 'react-icons/fa'
 
 
 const Sidebar = ({ active }) => {
@@ -15,7 +13,7 @@ const Sidebar = ({ active }) => {
     <S.Container sidebar={active}>
       <S.Text onClick={closeSidebar}>x</S.Text>
       <S.Content>
-        <S.Text>Categorias</S.Text>
+        <S.TextTitle><FaList/>Categorias</S.TextTitle>
         <S.List>
           <S.Item><a href='/Category?/anime?filter[categories]=comedy'>Comedy</a></S.Item>
           <S.Item><a href='/Category?/anime?filter[categories]=Fantasy'>Fantasy</a></S.Item>

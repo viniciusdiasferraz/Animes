@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Router from "next/router";
 import * as S from "./style";
-import Header from "../../components/Header";
 import Pagination from "../../components/Pagination/index";
 import AlternativeHeader from "../../components/AlternativeHeader"
+import Footer from "../../components/Footer";
 import qs from 'qs';
 
 
@@ -39,13 +39,13 @@ export default function AllAnimes() {
 
   return (
     <>
-      <AlternativeHeader background="red" conection={requestAnime}/>
+      <AlternativeHeader conection={requestAnime} />
       <S.Content>
         {requestAnime &&
           requestAnime?.data?.map((item) => {
             return (
               <S.Container onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)}>
-                  <S.Img src={item?.attributes?.posterImage.small} />
+                <S.Img src={item?.attributes?.posterImage.small} />
               </S.Container>
             );
           })}
@@ -59,6 +59,10 @@ export default function AllAnimes() {
           setOffset={setOffset}
         />
       )}
+      <S.ContentImg>
+        <S.ImgCat src="./yuzu 3.png" />
+      </S.ContentImg>
+      <Footer />
     </>
   )
 }

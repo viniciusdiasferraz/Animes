@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 export default function Sliders({ settings, children }) {
   return (
     <>
-      <Swiper
+      <Swiper margin='2em' height='10em' 
         modules={[Navigation, Pagination, A11y, Autoplay]}
         {...settings}
       >
