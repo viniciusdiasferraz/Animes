@@ -61,39 +61,42 @@ export default function Home() {
 
   return (
     <S.Container>
-      <FaBars onClick={showSiderbar} style={{ background: "#F46D1B", position:"absolute", width:"4.3em", height:"217.1vh" }}  height="221vh" size={20} color="white" cursor="pointer"/>
+      <FaBars onClick={showSiderbar} style={{ background: "#F46D1B", position: "absolute", width: "4.3em", height: "217.1vh" }} size={20} color="white" cursor="pointer" />
       {sidebar && <Sidebar active={setSidebar} />}
       <Header />
-      <S.Text><BiStar color='#F46D1B'/><span>Animes</span> Mais Populares</S.Text>
-      <S.Content>
-        <S.InsideContent>
-        {requestAnimePopularityRank &&
-          requestAnimePopularityRank.map((item) => {
-            return (
-              <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
-            );
-          })}
-        </S.InsideContent>
-      </S.Content>
 
-
-
-      
-      <S.Text><AiOutlineLike color='#F46D1B'/><span>Animes</span> Mais Bem Classificados</S.Text>
+      <S.Text><BiStar color='#F46D1B' /><span>Animes</span> Mais Populares</S.Text>
 
       <S.Content>
         <S.InsideContent>
-        {requestAnimeAverageRating &&
-          requestAnimeAverageRating.map((item) => {
-            return (
-              <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
-            );
-          })}
+          {requestAnimePopularityRank &&
+            requestAnimePopularityRank.map((item) => {
+              return (
+                <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
+              );
+            })}
         </S.InsideContent>
       </S.Content>
+
+      <Slider settings={settings} />
+
+      <S.Text><AiOutlineLike color='#F46D1B' /><span>Animes</span> Mais Bem Classificados</S.Text>
+
+      <S.Content>
+        <S.InsideContent>
+          {requestAnimeAverageRating &&
+            requestAnimeAverageRating.map((item) => {
+              return (
+                <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
+              );
+            })}
+        </S.InsideContent>
+      </S.Content>
+
       <S.ContentImg>
         <S.ImgCat src="./yuzu 3.png" />
       </S.ContentImg>
+
       <Footer />
     </S.Container>
   );

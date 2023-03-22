@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Text = styled.text`
 
 `
+export const Button = styled.button`
+
+`
+
 
 export const Img = styled.img`
 

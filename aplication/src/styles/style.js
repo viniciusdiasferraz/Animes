@@ -27,12 +27,16 @@ width: 85%;
 display: flex;
 justify-content: space-between;
 gap: 1.7%;
+
 `
 
 export const Img = styled.img`
 width: 225px;
 height: 339px;
-
+cursor:pointer;
+&:hover {
+    opacity:40%;
+}
 `
 
 

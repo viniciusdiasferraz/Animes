@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const SearchInput = ({ requestSearch }) => {
+const SearchInput = ({ requestSearch}) => {
   const [search, SetSearch] = useState("")
 
   const animeFiltered = () => {
@@ -18,11 +18,11 @@ const SearchInput = ({ requestSearch }) => {
 
   return (
     <>
-      <input
+      <input 
         onChange={(e) => SetSearch(e.target.value.toLowerCase(search))}
         type="search"
         placeholder='Buscar'
-      />
+      /> 
       <button onClick={() => { animeFiltered() }}>buscar</button>
 
     </>

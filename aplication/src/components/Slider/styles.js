@@ -21,9 +21,10 @@ export const Container = styled.div`
 `
 
 export const Singleimg = styled.img`
- width: 100%;
-  height: 100vh;
+ width: 90%;
+  height: 30vh;
   margin-bottom: -3px;
+  margin-left: 6em;
   cursor: pointer;
   object-fit: cover;
 `

@@ -16,13 +16,13 @@ export default function Sliders({ settings, children }) {
         {children}
         <S.Container>
           <SwiperSlide >
-            <S.Singleimg src="https://images5.alphacoders.com/104/1046568.jpg" />
+            <S.Singleimg src="./naruto banner.png" />
           </SwiperSlide>
           <SwiperSlide >
-            <S.Singleimg src="https://2.bp.blogspot.com/-j89YHwyM_vs/XLdT42TJehI/AAAAAAAABqY/Wecpzuf5ExMf_AL7NyHvOS8lw32mROYIgCKgBGAs/w0/saitama-one-punch-man-uhdpaper.com-4K-9.jpg" />
+            <S.Singleimg src="./dragon banner.png"/>
           </SwiperSlide>
           <SwiperSlide>
-            <S.Singleimg src="https://images3.alphacoders.com/716/716813.png" />
+            <S.Singleimg src="./one peace banner.png" />
           </SwiperSlide>
         </S.Container>
       </Swiper>

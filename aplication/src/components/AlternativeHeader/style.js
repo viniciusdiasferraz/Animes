@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const Logo = styled.img`
 width: 8em;
+margin-left: 5em;
 `
 
 export const Container = styled.div`
