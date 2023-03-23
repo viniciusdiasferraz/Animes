@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const Logo = styled.img`
 width: 8em;
 margin-left: 5em;
+cursor: pointer;
 `
 
 export const Container = styled.div`
@@ -20,6 +21,30 @@ export const Containerimput = styled.div`
     align-items: center;
     padding: 1em;
  `
+export const Containersearch = styled.div`
+ position: relative;
+ `
+
+export const Imput = styled.input`
+ height: 2.4em;
+ font-size: 14px;
+ padding: 12px 12px 12px 15px;
+ border: 2px solid #FFFFFF;
+ outline:none;
+ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+ border-radius: 10px;
+ background-color: transparent;
+ color: white;
+ &:hover {
+   ::placeholder {
+     color: white;
+   }
+ }
+ &::placeholder {
+   color: white;
+   font-weight: 300;
+ }
+`
 
 export const Textcontainer = styled.div`
     color: white;

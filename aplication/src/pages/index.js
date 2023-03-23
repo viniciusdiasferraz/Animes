@@ -8,6 +8,7 @@ import { FaBars } from 'react-icons/fa'
 import { BiStar } from "react-icons/bi";
 import { AiOutlineLike } from "react-icons/ai";
 import Sidebar from '../components/Sidebar'
+import { useRouter } from 'next/router';
 
 import * as S from "../styles/style";
 
@@ -15,8 +16,11 @@ import * as S from "../styles/style";
 export default function Home() {
   const [requestAnimePopularityRank, setRequestAnimePopularityRank] = useState();
   const [requestAnimeAverageRating, setRequestAnimeAverageRating] = useState();
-  const [sidebar, setSidebar] = useState(false)
-  const showSiderbar = () => setSidebar(!sidebar)
+  const [sidebar, setSidebar] = useState(false);
+  const showSiderbar = () => setSidebar(!sidebar);
+  const [search, SetSearch] = useState("");
+  const [imputResult, setImputResult] = useState();
+  const router = useRouter();
 
   const animemostpopular = () => {
     axios
@@ -25,7 +29,6 @@ export default function Home() {
         setRequestAnimePopularityRank(response.data.data);
       });
   };
-  console.log(requestAnimePopularityRank, "requestAnimePopularityRank");
 
   useEffect(() => {
     animemostpopular();
@@ -39,7 +42,6 @@ export default function Home() {
         setRequestAnimeAverageRating(response.data.data);
       });
   };
-  console.log(requestAnimeAverageRating, "AnimeAverageRating");
 
   useEffect(() => {
     animeaveragerating();
@@ -59,11 +61,29 @@ export default function Home() {
     },
   };
 
+  const animeFiltered = () => {
+    if (search) {
+      axios
+        .get(`https://kitsu.io/api/edge/anime?filter[text]=${search}`)
+        .then((response) => {
+          const anime = response.data.data[0];
+          if (anime) {
+            router.push(`/AnimesSelected?id=${anime.id}`);
+          } else {
+            alert('Nenhum anime encontrado');
+          }
+        })
+    }
+    else if (search === "") {
+      alert("Digite um Anime!")
+    }
+  }
+
   return (
     <S.Container>
       <FaBars onClick={showSiderbar} style={{ background: "#F46D1B", position: "absolute", width: "4.3em", height: "217.1vh" }} size={20} color="white" cursor="pointer" />
       {sidebar && <Sidebar active={setSidebar} />}
-      <Header />
+      <Header usedonbutton={animeFiltered} usedonfilter={search} setusedonfilter={SetSearch}/>
 
       <S.Text><BiStar color='#F46D1B' /><span>Animes</span> Mais Populares</S.Text>
 
@@ -99,5 +119,6 @@ export default function Home() {
 
       <Footer />
     </S.Container>
+
   );
 }

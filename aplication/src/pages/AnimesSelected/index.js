@@ -68,7 +68,7 @@ export default function AnimesSelected() {
             <FaBars onClick={showSiderbar} style={{ background: "#F46D1B", position: "absolute", width: "4.3em", height: "217.1vh", zIndex: "2" }} size={20} color="white" cursor="pointer" />
             {sidebar && <Sidebar active={setSidebar} />}
             <AlternativeHeader position='absolute' />
-            <S.Img src={animeSelected?.attributes?.coverImage.small} />
+            <S.Img src={animeSelected?.attributes?.coverImage ? animeSelected?.attributes?.coverImage.small : "./fundoaleatorio.jpg" } />
             <S.Img src={animeSelected?.attributes?.posterImage.small} />
             <S.Text>{animeSelected?.attributes?.canonicalTitle}</S.Text>
             <S.Text>{animeSelected?.attributes?.synopsis}</S.Text>
