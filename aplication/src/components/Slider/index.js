@@ -8,24 +8,26 @@ import "swiper/css/pagination";
 
 export default function Sliders({ settings, children }) {
   return (
-    <>
-      <Swiper margin='2em' height='10em' 
+    <S.Body>
+      <S.Line>
+      </S.Line>
+      <Swiper margin='2em' height='10em'
         modules={[Navigation, Pagination, A11y, Autoplay]}
         {...settings}
-      >
+        >
         {children}
         <S.Container>
           <SwiperSlide >
             <S.Singleimg src="./naruto banner.png" />
           </SwiperSlide>
           <SwiperSlide >
-            <S.Singleimg src="./dragon banner.png"/>
+            <S.Singleimg src="./dragon banner.png" />
           </SwiperSlide>
           <SwiperSlide>
             <S.Singleimg src="./one peace banner.png" />
           </SwiperSlide>
         </S.Container>
       </Swiper>
-    </>
+    </S.Body>
   );
 }

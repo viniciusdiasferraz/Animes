@@ -2,15 +2,16 @@ import styled from "styled-components";
 
 
 export const Logo = styled.img`
-margin-left: 5.4em;
+margin-left: 7%;
+margin-top: 1%;
 `
 
 export const Container = styled.div`
 background-image:  url("./banner.png") ;
 background-size: auto;
-height: 28.5rem;;
+height: 73vh;
 padding: 0.5em;
-margin-bottom: 2em;
+margin-bottom: 4%;
 > svg {
     position: absolute;
     color: white;
@@ -26,7 +27,7 @@ export const Containerimput = styled.div`
  display: flex;
  justify-content: space-between;
  align-items: center;
- padding: 1em;
+ margin-right: 2.5%;
  `
  export const Containersearch = styled.div`
  position: relative;
@@ -61,8 +62,8 @@ export const Textcontainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: 3em;
+    width: 98%;
+    height: 28vh;
     justify-content: flex-end;
 `
 

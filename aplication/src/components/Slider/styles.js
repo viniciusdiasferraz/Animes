@@ -1,5 +1,17 @@
 import styled from 'styled-components'
 
+export const Body = styled.div`
+width:100%;
+`
+
+
+export const Line = styled.div`
+width:100%;
+background-color:#34AC40;
+height: 2.5vh;
+`
+
+
 export const Content = styled.div`
   max-width: 1940px;
   height: 80vh;

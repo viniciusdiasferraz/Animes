@@ -87,20 +87,20 @@ export default function Home() {
   return (
     <S.Container>
       <S.Body>
-      <FaBars onClick={showSiderbar} color="white" size={20}  cursor="pointer" />
+      <FaBars onClick={showSiderbar} color="white" size={45}  cursor="pointer" />
       {sidebar && <Sidebar active={setSidebar} />}
       </S.Body>
 
       <Header usedonbutton={animeFiltered} usedonfilter={search} setusedonfilter={SetSearch} />
 
-      <S.Text><BiStar color='#F46D1B' /><span>Animes</span> Mais Populares</S.Text>
+      <S.Text><BiStar color='#F46D1B' size={27}/><span>Animes</span>Mais Populares</S.Text>
 
       <S.Content>
         <S.InsideContent>
           {requestAnimePopularityRank &&
             requestAnimePopularityRank.map((item) => {
               return (
-                <Tooltip title={
+                <Tooltip arrow title={
                   <>
                     <div>{item?.attributes?.canonicalTitle}</div>
                     <div>{item?.attributes?.averageRating}%</div>

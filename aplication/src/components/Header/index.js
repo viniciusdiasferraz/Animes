@@ -29,7 +29,7 @@ function Header({ usedonbutton, usedonfilter, setusedonfilter }) {
             </S.Containerimput>
             <S.Textcontainer >
                 <S.paragraphone>
-                    O <span>Maior</span> Catalógo de
+                    O <span>Maior</span> Catálogo de
                 </S.paragraphone>
                 <S.paragraphtwo>
                     <span>Anime</span> do Mundo
