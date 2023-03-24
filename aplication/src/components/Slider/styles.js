@@ -5,7 +5,7 @@ export const Content = styled.div`
   height: 80vh;
   margin: 0 auto;
   &::after{
-  color: #282c34;
+  color: #F46D1B;
   margin-right: 20px;
   height: 13em;
   margin: 2em;

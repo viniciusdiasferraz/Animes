@@ -4,11 +4,13 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import axios from "axios";
 import Router from "next/router";
-import { FaBars } from 'react-icons/fa'
+import { FaBars, FaStar } from 'react-icons/fa'
 import { BiStar } from "react-icons/bi";
 import { AiOutlineLike } from "react-icons/ai";
 import Sidebar from '../components/Sidebar'
 import { useRouter } from 'next/router';
+import Tooltip from '@mui/material/Tooltip';
+import { FcLike } from "react-icons/fc";
 
 import * as S from "../styles/style";
 
@@ -50,7 +52,7 @@ export default function Home() {
   const settings = {
     spaceBetween: 0,
     slidesPerView: 1,
-    navigation: true,
+    navigation: false,
     loop: true,
     autoplay: {
       delay: 6500,
@@ -58,6 +60,9 @@ export default function Home() {
     },
     pagination: {
       clickable: true,
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '" style="background-color: #F46D1B;"></span>';
+      },
     },
   };
 
@@ -81,9 +86,12 @@ export default function Home() {
 
   return (
     <S.Container>
-      <FaBars onClick={showSiderbar} style={{ background: "#F46D1B", position: "absolute", width: "4.3em", height: "217.1vh" }} size={20} color="white" cursor="pointer" />
+      <S.Body>
+      <FaBars onClick={showSiderbar} color="white" size={20}  cursor="pointer" />
       {sidebar && <Sidebar active={setSidebar} />}
-      <Header usedonbutton={animeFiltered} usedonfilter={search} setusedonfilter={SetSearch}/>
+      </S.Body>
+
+      <Header usedonbutton={animeFiltered} usedonfilter={search} setusedonfilter={SetSearch} />
 
       <S.Text><BiStar color='#F46D1B' /><span>Animes</span> Mais Populares</S.Text>
 
@@ -92,7 +100,17 @@ export default function Home() {
           {requestAnimePopularityRank &&
             requestAnimePopularityRank.map((item) => {
               return (
-                <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
+                <Tooltip title={
+                  <>
+                    <div>{item?.attributes?.canonicalTitle}</div>
+                    <div>{item?.attributes?.averageRating}%</div>
+                    <div><FaStar/> #{item?.attributes?.popularityRank}</div>
+                    <div><FcLike/> #{item?.attributes?.ratingRank}</div>
+                    <div>Sinopse: {item?.attributes?.synopsis.substring(0, 180)}...</div>
+                  </>
+                }>
+                  <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
+                </Tooltip>
               );
             })}
         </S.InsideContent>

@@ -7,7 +7,7 @@ import { FaSistrix } from 'react-icons/fa';
 
 
 
-export default function AlternativeHeader({ background, position, }) {
+export default function AlternativeHeader({ background, position }) {
   const [search, SetSearch] = useState("");
   const router = useRouter();
 
@@ -34,11 +34,11 @@ export default function AlternativeHeader({ background, position, }) {
         <S.Logo src="./logo.svg" onClick={() => Router.push(`http://localhost:3000`)} />
         <S.Containersearch>
           <S.Imput
-            onChange={(e) => setusedonfilter(e.target.value.toLowerCase(usedonfilter))}
+            onChange={(e) => SetSearch(e.target.value.toLowerCase(search))}
             type="search"
             placeholder='Buscar'
           />
-          <FaSistrix onClick={() => { usedonbutton() }} cursor="pointer" color="white"
+          <FaSistrix onClick={() => { animeFiltered() }} cursor="pointer" color="white"
             style={{
               position: "absolute",
               top: "50%",

@@ -20,9 +20,9 @@ const Sidebar = ({ active }) => {
           <S.Item><a href='/Category?/anime?filter[categories]=Romance'>Romance</a></S.Item>
           <S.Item><a href='/Category?/anime?filter[categories]=Action'>Action</a></S.Item>
           <S.Item><a href='/Category?/anime?filter[categories]=Drama'>Drama</a></S.Item>
-          <S.Item><a href='/Category?/anime?filter[categories]=School S.Itemfe'>School S.Itemfe</a></S.Item>
+          <S.Item><a href='/Category?/anime?filter[categories]=School Life'>School Life</a></S.Item>
           <S.Item><a href='/Category?/anime?filter[categories]=Adventure'>Adventure</a></S.Item>
-          <S.Item><a href='/Category?/anime?filter[categories]=SS.Itemce of S.Itemfe'>SS.Itemce of S.Itemfe</a></S.Item>
+          <S.Item><a href='/Category?/anime?filter[categories]=Slice of Life'>Slice of Life</a></S.Item>
           <S.Item><a href='/Category?/anime?filter[categories]=Yaoi'>Yaoi</a></S.Item>
           <S.Item><a href='/Category?/anime?filter[categories]=Science Fiction'>Science Fiction</a></S.Item>
           <S.Item><a href='/Category?/anime?filter[categories]=Shoujo Ai'>Shoujo Ai</a></S.Item>

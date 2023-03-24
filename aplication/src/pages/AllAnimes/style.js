@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const Text = styled.text`
+margin-left: 9%;
+    font-weight: 600;
+    color: #F46D1B;
+    font-size: 1.5em
 `
 
 export const Content = styled.div`

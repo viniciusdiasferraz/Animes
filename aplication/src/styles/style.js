@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
+export const Body = styled.div`
+height: 100%;;
+background-color: #F46D1B;
+position: absolute;
+width: 4.8%;
+`
+
 export const Container = styled.div`
-height: 100vh;
+height: 100%;;
 
 `
 
@@ -21,7 +28,9 @@ display: flex;
 width: 100%;
 justify-content: center;
 margin-top: 2em;
+margin-bottom: 5em;
 `
+
 export const InsideContent = styled.div`
 width: 85%;
 display: flex;

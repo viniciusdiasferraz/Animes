@@ -7,7 +7,7 @@ import qs from 'qs';
 import Footer from "../../components/Footer";
 import Router from "next/router";
 import AlternativeHeader from "../../components/AlternativeHeader";
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaFilm } from 'react-icons/fa';
 import Sidebar from "../../components/Sidebar";
 
 
@@ -22,6 +22,8 @@ function Category() {
     const LIMIT = 20;
     const [sidebar, setSidebar] = useState(false)
     const showSiderbar = () => setSidebar(!sidebar)
+    const [screenCategory, setScreenCategory] = useState()
+
 
     let url;
     let categoryUrl;
@@ -48,6 +50,99 @@ function Category() {
             });
     }, [offset]);
 
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const params = new URLSearchParams(window.location.search);
+            setScreenCategory(params.toString().replace('%2Fanime%3Ffilter%5Bcategories%5D=', ''))
+        }
+    }, [])
+
+    const selectedcategory = () => {
+        switch (screenCategory) {
+            case "comedy":
+                return "Comedy";
+            case "Fantasy":
+                return "Fantasy";
+            case "Romance":
+                return "Romance";
+            case "Action":
+                return "Action";
+            case "Drama":
+                return "Drama";
+            case "School+Life":
+                return "School Life";
+            case "Adventure":
+                return "Adventure";
+            case "Slice+of+Life":
+                return "Slice of Life";
+            case "Yaoi":
+                return "Yaoi";
+            case "Science+Fiction":
+                return "Science Fiction";
+            case "Shoujo+Ai":
+                return "Shoujo Ai";
+            case "Ecchi":
+                return "Ecchi";
+            case "Sports":
+                return "Sports";
+            case "Historical":
+                return "Historical";
+            case "Magic":
+                return "Magic";
+            case "Mystery":
+                return "Mystery";
+            case "Japan":
+                return "Japan";
+            case "Harem":
+                return "Harem";
+            case "Music":
+                return "Music";
+            case "Thriller":
+                return "Thriller";
+            case "Earth":
+                return "Earth";
+            case "Psychological":
+                return "Psychological";
+            case "Supernatural":
+                return "Supernatural";
+            case "Kids":
+                return "Kids";
+            case "Horror":
+                return "Horror";
+            case "Present":
+                return "Present";
+            case "Shounen+Ai":
+                return "Shounen Ai";
+            case "Asia":
+                return "Asia";
+            case "Shounen":
+                return "Shounen";
+            case "Seinen":
+                return "Seinen";
+            case "Martial+Arts":
+                return "Martial Arts";
+            case "Mecha":
+                return "Mecha";
+            case "Super+Power":
+                return "Super Power";
+            case "Demon":
+                return "Demon";
+            case "Isekai":
+                return "Isekai";
+            case "Fantasy+World":
+                return "Fantasy World";
+            case "Shoujo":
+                return "Shoujo";
+            case "Military":
+                return "Military";
+            case "Violence":
+                return "Violence";
+            case "Plot+Continuity":
+                return "Plot Continuity";
+            default:
+                return "Desconhecido";
+        }
+    }
 
 
     return (
@@ -55,12 +150,14 @@ function Category() {
             <FaBars onClick={showSiderbar} style={{ background: "#F46D1B", position: "absolute", width: "4.3em", height: "217.1vh" }} size={20} color="white" cursor="pointer" />
             {sidebar && <Sidebar active={setSidebar} />}
             <AlternativeHeader />
+            <S.Text><FaFilm />{selectedcategory()}</S.Text>
             <S.Content>
                 {categorySelected &&
                     categorySelected?.data?.map((item) => {
                         return (
+
                             <S.Container onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)}>
-                                <S.Img src={item?.attributes?.posterImage.small} />
+                                <S.Img src={item?.attributes?.posterImage?.small} />
                             </S.Container >
                         );
                     })}
