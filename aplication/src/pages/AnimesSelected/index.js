@@ -5,10 +5,12 @@ import Footer from "../../components/Footer";
 import * as S from "./style";
 import AlternativeHeader from "../../components/AlternativeHeader";
 import Sidebar from "../../components/Sidebar";
-import { FaBars } from 'react-icons/fa'
+import { FaBars, FaStar } from 'react-icons/fa'
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { BsPlayBtnFill } from "react-icons/bs";
+import { FcLike } from "react-icons/fc";
+
 
 
 export default function AnimesSelected() {
@@ -80,9 +82,9 @@ export default function AnimesSelected() {
             </S.Container>
             <S.AnimeVideo>
                 <S.Button onClick={handleOpen}><BsPlayBtnFill color="white" size={35}/>Ver Trailer</S.Button>
-                <S.Text>{animeSelected?.attributes?.ratingRank}</S.Text>
-                <S.Text>{animeSelected?.attributes?.averageRating}</S.Text>
-                <S.Text>{animeSelected?.attributes?.popularityRank}</S.Text>
+                <S.TextRating>Aprovado por <span>{animeSelected?.attributes?.averageRating}</span>% da Comunidade</S.TextRating>
+                <S.Textpopularity><FcLike size={20}/> #{animeSelected?.attributes?.popularityRank} Mais Popular</S.Textpopularity>
+                <S.TextRank><FaStar color="#FFE145" size={20}/> #{animeSelected?.attributes?.ratingRank} Melhor Classificado</S.TextRank>
             </S.AnimeVideo>
             <Modal
                 open={open}

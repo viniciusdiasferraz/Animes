@@ -60,8 +60,5 @@ export const List = styled.ul`
 export const Item = styled.li`
   color: white;
   margin-bottom: 0.5em;
-  &:hover{
-    text-decoration: underline;
-  }
 `
 
