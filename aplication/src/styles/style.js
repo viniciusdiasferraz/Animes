@@ -77,10 +77,11 @@ font-weight: 400;
 `
 
 export const InsideContent = styled.div`
-width: 85%;
-display: flex;
-justify-content: space-between;
-gap: 1.7%;
+  width: 85%;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 `
 
 export const Img = styled.img`

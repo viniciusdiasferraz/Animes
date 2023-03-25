@@ -21,13 +21,27 @@ margin-bottom: 4%;
     margin-left: 32px;
     cursor: pointer;
   }
+
+  @media(max-width: 550px){
+    display: flex;
+    flex-direction: column;
+    aling-itens: center;
+    justify-content: center;
+    aling-content: space-between;
+  }
 `
 
 export const Containerimput = styled.div`
- display: flex;
- justify-content: space-between;
- align-items: center;
- margin-right: 2.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 2.5%;
+  
+  @media(max-width: 550px){
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
  `
  export const Containersearch = styled.div`
  position: relative;
@@ -65,6 +79,22 @@ export const Textcontainer = styled.div`
     width: 98%;
     height: 28vh;
     justify-content: flex-end;
+
+    @media(max-width:800px){
+      font-size: 2.5em;
+    }
+
+    @media(max-width:600px){
+      font-size: 2em;
+    }
+
+    @media(max-width:550px){
+      height: 18vh;
+    }
+
+    @media(max-width:400px){
+      font-size: 1.5em;
+    }
 `
 
 export const paragraphone = styled.div`
