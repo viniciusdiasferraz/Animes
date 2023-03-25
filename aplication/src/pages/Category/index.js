@@ -144,10 +144,10 @@ function Category() {
 
     return (
         <>
-            <S.Body>
+            <S.ContainerSideBar>
                 <FaBars onClick={showSiderbar} color="white" size={45} cursor="pointer" />
                 {sidebar && <Sidebar active={setSidebar} />}
-            </S.Body>
+            </S.ContainerSideBar>
             <AlternativeHeader />
             <S.Title>
                 <FaFilm color=" #F46D1B" size={27} style={{ position: "absolute" }} /><S.Text>{selectedcategory()}</S.Text>

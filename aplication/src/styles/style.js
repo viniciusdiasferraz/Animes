@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import {Tooltip} from '@mui/material';
 
-export const Body = styled.div`
-height: 100%;
+export const ContainerSideBar = styled.div`
+height: 305vh;
 background-color: #F46D1B;
 position: absolute;
 width: 5.2%;
@@ -11,7 +12,7 @@ padding: 1.4%;
 `
 
 export const Container = styled.div`
-height: 100%;;
+
 
 `
 
@@ -80,7 +81,6 @@ width: 85%;
 display: flex;
 justify-content: space-between;
 gap: 1.7%;
-
 `
 
 export const Img = styled.img`
@@ -99,5 +99,9 @@ height: 4em;
 export const ImgCat = styled.img`
 margin-top: 2em;
 position: absolute;
+z-index: 2;
+`
 
+export const Tooltiptest = styled(Tooltip)`
+background-color: red !important;
 `

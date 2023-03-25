@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Body = styled.div`
-    height: 100%;
+export const ContainerSideBar = styled.div`
+    height: 223vh;
     background-color: #F46D1B;
     position: absolute;
     width: 5.2%;
@@ -12,6 +12,9 @@ export const Body = styled.div`
 `
 export const ImgCover = styled.img`
     width: 100%;
+    object-fit: cover;
+    object-position: 100% 60%;
+    height: 53vh;
 `
 
 export const Container = styled.div`
@@ -19,7 +22,7 @@ export const Container = styled.div`
     width: 74%;
     align-items: center;
     margin-left: 26%;
-    margin-bottom: 17%;
+    margin-bottom: 30%;
 `
 export const SpaceImgButton = styled.div`
 
@@ -108,4 +111,5 @@ export const ContentImg = styled.div`
 export const ImgCat = styled.img`
     margin-top: 2em;
     position: absolute;
+    z-index: 2;
 `

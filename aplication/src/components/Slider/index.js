@@ -9,9 +9,8 @@ import "swiper/css/pagination";
 export default function Sliders({ settings, children }) {
   return (
     <S.Body>
-      <S.Line>
-      </S.Line>
-      <Swiper margin='2em' height='10em'
+      <S.Line />
+      <Swiper margin='2em' height='10em' style={{zIndex: "-1"}}
         modules={[Navigation, Pagination, A11y, Autoplay]}
         {...settings}
         >

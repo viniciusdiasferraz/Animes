@@ -1,17 +1,20 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-background-color: #262626;
-height: 16em;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-between;
+    background-color: #262626;
+    height: 16em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1 ;
+    width: 100%;
 `
 export const Containerone = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 export const Text = styled.text`

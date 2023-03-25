@@ -65,10 +65,10 @@ export default function AnimesSelected() {
 
     return (
         <>
-            <S.Body>
+            <S.ContainerSideBar>
                 <FaBars onClick={showSiderbar} color="white" size={45} cursor="pointer" />
                 {sidebar && <Sidebar active={setSidebar} />}
-            </S.Body>
+            </S.ContainerSideBar>
             <AlternativeHeader position='absolute' />
             <S.ImgCover src={animeSelected?.attributes?.coverImage ? animeSelected?.attributes?.coverImage.small : "./fundoaleatorio.jpg"} />
             <S.Container>

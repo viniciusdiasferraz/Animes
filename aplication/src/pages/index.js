@@ -21,7 +21,6 @@ export default function Home() {
   const [sidebar, setSidebar] = useState(false);
   const showSiderbar = () => setSidebar(!sidebar);
   const [search, SetSearch] = useState("");
-  const [imputResult, setImputResult] = useState();
   const router = useRouter();
 
   const animemostpopular = () => {
@@ -84,13 +83,16 @@ export default function Home() {
     }
   }
 
+  const popperClass = {
+    background: 'red',
+  };
 
   return (
     <S.Container>
-      <S.Body>
+      <S.ContainerSideBar>
         <FaBars onClick={showSiderbar} color="white" size={45} cursor="pointer" />
         {sidebar && <Sidebar active={setSidebar} />}
-      </S.Body>
+      </S.ContainerSideBar>
 
       <Header usedonbutton={animeFiltered} usedonfilter={search} setusedonfilter={SetSearch} />
 
@@ -101,12 +103,12 @@ export default function Home() {
           {requestAnimePopularityRank &&
             requestAnimePopularityRank.map((item) => {
               return (
-                <Tooltip  style={{ backgroundColor: '#262626' }} arrow title={
+                <Tooltip PopperProps={{ className: popperClass }} arrow title={
                   <S.InsideTooltip>
                     <S.TitleTooltip>{item?.attributes?.canonicalTitle}</S.TitleTooltip>
                     <S.PercentageTooltip>{item?.attributes?.averageRating}%</S.PercentageTooltip>
-                    <S.PopularityTooltip><FcLike  /> # {item?.attributes?.popularityRank} Mais Popular</S.PopularityTooltip>
-                    <S.RankTooltip><FaStar color="#FFE145"/> # {item?.attributes?.ratingRank} Melhor Classificado</S.RankTooltip>
+                    <S.PopularityTooltip><FcLike /> # {item?.attributes?.popularityRank} Mais Popular</S.PopularityTooltip>
+                    <S.RankTooltip><FaStar color="#FFE145" /> # {item?.attributes?.ratingRank} Melhor Classificado</S.RankTooltip>
                     <S.SynopsisTooltip>{item?.attributes?.synopsis.substring(0, 180)}...</S.SynopsisTooltip>
                   </S.InsideTooltip>
                 }
@@ -127,15 +129,19 @@ export default function Home() {
           {requestAnimeAverageRating &&
             requestAnimeAverageRating.map((item) => {
               return (
-                <Tooltip  style={{ backgroundColor: '#262626' }} arrow title={
+                <Tooltip  arrow title={
                   <S.InsideTooltip>
                     <S.TitleTooltip>{item?.attributes?.canonicalTitle}</S.TitleTooltip>
                     <S.PercentageTooltip>{item?.attributes?.averageRating}%</S.PercentageTooltip>
-                    <S.PopularityTooltip><FcLike  /> # {item?.attributes?.popularityRank} Mais Popular</S.PopularityTooltip>
-                    <S.RankTooltip><FaStar color="#FFE145"/> # {item?.attributes?.ratingRank} Melhor Classificado</S.RankTooltip>
-                    <S.SynopsisTooltip>{item?.attributes?.synopsis? item?.attributes?.synopsis.substring(0, 180) : "não existe descrição"}...</S.SynopsisTooltip>
+                    <S.PopularityTooltip><FcLike /> # {item?.attributes?.popularityRank} Mais Popular</S.PopularityTooltip>
+                    <S.RankTooltip><FaStar color="#FFE145" /> # {item?.attributes?.ratingRank} Melhor Classificado</S.RankTooltip>
+                    <S.SynopsisTooltip>{item?.attributes?.synopsis ? item?.attributes?.synopsis.substring(0, 180) : "não existe descrição"}...</S.SynopsisTooltip>
                   </S.InsideTooltip>
                 }
+                classes={{
+                  tooltip: "backgroundColor: red"
+              
+                }}
                 >
                   <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
                 </Tooltip>

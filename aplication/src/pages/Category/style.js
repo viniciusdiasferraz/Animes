@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Body = styled.div`
-    height: 100%;
+export const ContainerSideBar = styled.div`
+    height: 317.5vh;
     background-color: #F46D1B;
     position: absolute;
     width: 5.2%;
@@ -86,4 +86,5 @@ export const ContentImg = styled.div`
 export const ImgCat = styled.img`
     margin-top: 2em;
     position: absolute;
+    z-index: 2;
 `

@@ -7,12 +7,10 @@ export const Container = styled.div`
   left: 0px;
   bottom: 0px;
   width: 15em;
-  left: ${props => props.sidebar ? '0' : '-100%'};
   animation: showSidebar .4s;
-  z-index: 2; 
-  height: 217.1vh;
-}
-  }
+  z-index: 20; 
+  height: 100%;
+  
   @keyframes showSidebar {
     from {
       opacity: 0;

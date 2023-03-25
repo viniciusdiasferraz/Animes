@@ -13,7 +13,7 @@ const Sidebar = ({ active }) => {
     <S.Container sidebar={active}>
       <S.Text onClick={closeSidebar}>x</S.Text>
       <S.Content>
-        <S.TextTitle><FaList/>Categorias</S.TextTitle>
+        <S.TextTitle><FaList />Categorias</S.TextTitle>
         <S.List>
           <S.Item><a href='/Category?/anime?filter[categories]=comedy'>Comedy</a></S.Item>
           <S.Item><a href='/Category?/anime?filter[categories]=Fantasy'>Fantasy</a></S.Item>
