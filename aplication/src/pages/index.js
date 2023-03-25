@@ -84,31 +84,33 @@ export default function Home() {
     }
   }
 
+
   return (
     <S.Container>
       <S.Body>
-      <FaBars onClick={showSiderbar} color="white" size={45}  cursor="pointer" />
-      {sidebar && <Sidebar active={setSidebar} />}
+        <FaBars onClick={showSiderbar} color="white" size={45} cursor="pointer" />
+        {sidebar && <Sidebar active={setSidebar} />}
       </S.Body>
 
       <Header usedonbutton={animeFiltered} usedonfilter={search} setusedonfilter={SetSearch} />
 
-      <S.Text><BiStar color='#F46D1B' size={27}/><span>Animes</span>Mais Populares</S.Text>
+      <S.Text><BiStar color='#F46D1B' size={27} /><span>Animes</span>Mais Populares</S.Text>
 
       <S.Content>
         <S.InsideContent>
           {requestAnimePopularityRank &&
             requestAnimePopularityRank.map((item) => {
               return (
-                <Tooltip arrow title={
-                  <>
-                    <div>{item?.attributes?.canonicalTitle}</div>
-                    <div>{item?.attributes?.averageRating}%</div>
-                    <div><FaStar/> #{item?.attributes?.popularityRank}</div>
-                    <div><FcLike/> #{item?.attributes?.ratingRank}</div>
-                    <div>Sinopse: {item?.attributes?.synopsis.substring(0, 180)}...</div>
-                  </>
-                }>
+                <Tooltip  style={{ backgroundColor: '#262626' }} arrow title={
+                  <S.InsideTooltip>
+                    <S.TitleTooltip>{item?.attributes?.canonicalTitle}</S.TitleTooltip>
+                    <S.PercentageTooltip>{item?.attributes?.averageRating}%</S.PercentageTooltip>
+                    <S.PopularityTooltip><FcLike  /> # {item?.attributes?.popularityRank} Mais Popular</S.PopularityTooltip>
+                    <S.RankTooltip><FaStar color="#FFE145"/> # {item?.attributes?.ratingRank} Melhor Classificado</S.RankTooltip>
+                    <S.SynopsisTooltip>{item?.attributes?.synopsis.substring(0, 180)}...</S.SynopsisTooltip>
+                  </S.InsideTooltip>
+                }
+                >
                   <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
                 </Tooltip>
               );
@@ -125,7 +127,18 @@ export default function Home() {
           {requestAnimeAverageRating &&
             requestAnimeAverageRating.map((item) => {
               return (
-                <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
+                <Tooltip  style={{ backgroundColor: '#262626' }} arrow title={
+                  <S.InsideTooltip>
+                    <S.TitleTooltip>{item?.attributes?.canonicalTitle}</S.TitleTooltip>
+                    <S.PercentageTooltip>{item?.attributes?.averageRating}%</S.PercentageTooltip>
+                    <S.PopularityTooltip><FcLike  /> # {item?.attributes?.popularityRank} Mais Popular</S.PopularityTooltip>
+                    <S.RankTooltip><FaStar color="#FFE145"/> # {item?.attributes?.ratingRank} Melhor Classificado</S.RankTooltip>
+                    <S.SynopsisTooltip>{item?.attributes?.synopsis? item?.attributes?.synopsis.substring(0, 180) : "não existe descrição"}...</S.SynopsisTooltip>
+                  </S.InsideTooltip>
+                }
+                >
+                  <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
+                </Tooltip>
               );
             })}
         </S.InsideContent>

@@ -47,8 +47,6 @@ export default function AlternativeHeader({ background, position }) {
             }} />
         </S.Containersearch>
       </S.Containerimput>
-      <S.Textcontainer >
-      </S.Textcontainer>
     </S.Container>
   )
 }

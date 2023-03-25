@@ -8,9 +8,7 @@ import Sidebar from "../../components/Sidebar";
 import { FaBars } from 'react-icons/fa'
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-
-
-
+import { BsPlayBtnFill } from "react-icons/bs";
 
 
 export default function AnimesSelected() {
@@ -65,17 +63,27 @@ export default function AnimesSelected() {
 
     return (
         <>
-            <FaBars onClick={showSiderbar} style={{ background: "#F46D1B", position: "absolute", width: "4.3em", height: "217.1vh", zIndex: "2" }} size={20} color="white" cursor="pointer" />
-            {sidebar && <Sidebar active={setSidebar} />}
+            <S.Body>
+                <FaBars onClick={showSiderbar} color="white" size={45} cursor="pointer" />
+                {sidebar && <Sidebar active={setSidebar} />}
+            </S.Body>
             <AlternativeHeader position='absolute' />
-            <S.Img src={animeSelected?.attributes?.coverImage ? animeSelected?.attributes?.coverImage.small : "./fundoaleatorio.jpg" } />
-            <S.Img src={animeSelected?.attributes?.posterImage.small} />
-            <S.Text>{animeSelected?.attributes?.canonicalTitle}</S.Text>
-            <S.Text>{animeSelected?.attributes?.synopsis}</S.Text>
-            <S.Text>{animeSelected?.attributes?.averageRating}</S.Text>
-            <S.Text>{animeSelected?.attributes?.popularityRank}</S.Text>
-            <S.Text>{animeSelected?.attributes?.ratingRank}</S.Text>
-            <S.Button onClick={handleOpen}>Open modal</S.Button>
+            <S.ImgCover src={animeSelected?.attributes?.coverImage ? animeSelected?.attributes?.coverImage.small : "./fundoaleatorio.jpg"} />
+            <S.Container>
+                <S.SpaceImgButton>
+                    <S.Img src={animeSelected?.attributes?.posterImage.small} />
+                </S.SpaceImgButton>
+                <S.SpaceDescription>
+                    <S.TextTitle>{animeSelected?.attributes?.canonicalTitle}</S.TextTitle>
+                    <S.Text>{animeSelected?.attributes?.synopsis}</S.Text>
+                </S.SpaceDescription>
+            </S.Container>
+            <S.AnimeVideo>
+                <S.Button onClick={handleOpen}><BsPlayBtnFill color="white" size={35}/>Ver Trailer</S.Button>
+                <S.Text>{animeSelected?.attributes?.ratingRank}</S.Text>
+                <S.Text>{animeSelected?.attributes?.averageRating}</S.Text>
+                <S.Text>{animeSelected?.attributes?.popularityRank}</S.Text>
+            </S.AnimeVideo>
             <Modal
                 open={open}
                 onClose={handleClose}

@@ -7,8 +7,10 @@ import Pagination from "../../components/Pagination/index";
 import AlternativeHeader from "../../components/AlternativeHeader"
 import Footer from "../../components/Footer";
 import qs from 'qs';
-import { FaBars, FaFilm } from 'react-icons/fa';
+import { FaBars, FaFilm, FaStar} from 'react-icons/fa';
 import Sidebar from "../../components/Sidebar";
+import { FcLike } from "react-icons/fc";
+import Tooltip from '@mui/material/Tooltip';
 
 
 
@@ -45,17 +47,30 @@ export default function AllAnimes() {
 
   return (
     <>
-      <FaBars onClick={showSiderbar} style={{ background: "#F46D1B", position: "absolute", width: "4.3em", height: "217.1vh" }} size={20} color="white" cursor="pointer" />
-      {sidebar && <Sidebar active={setSidebar} />}
+      <S.Body>
+        <FaBars onClick={showSiderbar} color="white" size={45} cursor="pointer" />
+        {sidebar && <Sidebar active={setSidebar} />}
+      </S.Body>
       <AlternativeHeader conection={requestAnime} />
-      <S.Text><FaFilm/>Todos os animes</S.Text>
+      <S.Title>
+        <FaFilm color=" #F46D1B" size={27} style={{ position: "absolute" }} /><S.Text>Todos os animes</S.Text>
+      </S.Title>
       <S.Content>
         {requestAnime &&
           requestAnime?.data?.map((item) => {
             return (
-              <S.Container onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)}>
-                <S.Img src={item?.attributes?.posterImage.small} />
-              </S.Container>
+              <Tooltip style={{ backgroundColor: '#262626' }} arrow title={
+                <S.InsideTooltip>
+                  <S.TitleTooltip>{item?.attributes?.canonicalTitle}</S.TitleTooltip>
+                  <S.PercentageTooltip>{item?.attributes?.averageRating}%</S.PercentageTooltip>
+                  <S.PopularityTooltip><FcLike /> # {item?.attributes?.popularityRank} Mais Popular</S.PopularityTooltip>
+                  <S.RankTooltip><FaStar color="#FFE145" /> # {item?.attributes?.ratingRank} Melhor Classificado</S.RankTooltip>
+                  <S.SynopsisTooltip>{item?.attributes?.synopsis ? item?.attributes?.synopsis.substring(0, 180) : "não existe descrição"}...</S.SynopsisTooltip>
+                </S.InsideTooltip>
+              }
+              >
+                <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
+              </Tooltip>
             );
           })}
       </S.Content>

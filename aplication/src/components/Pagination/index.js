@@ -1,4 +1,7 @@
 import React from 'react';
+import { BsFillArrowLeftSquareFill, BsFillArrowRightSquareFill } from "react-icons/bs";
+
+import * as S from "./style";
 
 const MAX_ITEMS = 9;
 const MAX_LEFT = (MAX_ITEMS - 1) / 2;
@@ -22,35 +25,17 @@ const Pagination = ({
   }
 
   return (
-    <ul className="pagination">
-      <li>
-        <button
-          onClick={() => onPageChange(current - 1)}
-          disabled={current === 1}
-        >
-          Anterior
-        </button>
-      </li>
-      {Array.from({ length: Math.min(MAX_ITEMS, pages) })
-        .map((_, index) => index + first)
-        .map((page) => (
-          <li key={page}>
-            <button
-              onClick={() => onPageChange(page)}
-            >
-              {page}
-            </button>
-          </li>
-        ))}
-      <li>
-        <button
-          onClick={() => onPageChange(current + 1)}
-          disabled={current === pages}
-        >
-          Próxima
-        </button>
-      </li>
-    </ul>
+    <S.Container>
+        <S.List>
+          <BsFillArrowLeftSquareFill color="#F46D1B" size={45} onClick={() => onPageChange(current - 1)}
+            disabled={current === 1} />
+        </S.List>
+
+        <S.List>
+          <BsFillArrowRightSquareFill color="#F46D1B" size={45} onClick={() => onPageChange(current + 1)}
+            disabled={current === pages} />
+        </S.List>
+    </S.Container>
   );
 };
 
