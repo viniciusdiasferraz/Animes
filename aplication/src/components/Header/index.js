@@ -8,6 +8,7 @@ export default function Header({ usedonbutton, usedonfilter, setusedonfilter }) 
 
     function handleKeyDown(event) {
         if (event.key === 'Enter') {
+            usedonbutton()
         }
     }
 
