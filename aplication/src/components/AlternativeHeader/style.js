@@ -28,7 +28,7 @@ export const Containersearch = styled.div`
   position: relative;
  `
 
-export const Imput = styled.input`
+export const Input = styled.input`
   height: 2.4em;
   font-size: 14px;
   padding: 12px 12px 12px 15px;

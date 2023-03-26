@@ -7,8 +7,8 @@ import { FaSistrix } from 'react-icons/fa';
 import * as S from "./style";
 
 
-export default function AlternativeHeader({ background, position }) {
-  const [search, SetSearch] = useState("");
+export default function AlternativeHeader({ background, position, filter }) {
+  const [search, setSearch] = useState("");
   const router = useRouter();
 
   const animeFiltered = () => {
@@ -19,6 +19,7 @@ export default function AlternativeHeader({ background, position }) {
           const anime = response.data.data[0];
           if (anime) {
             router.push(`/AnimesSelected?id=${anime.id}`);
+            console.log(anime, 'anime')
           } else {
             alert('Nenhum anime encontrado');
           }
@@ -33,15 +34,15 @@ export default function AlternativeHeader({ background, position }) {
     if (event.key === 'Enter') {
       animeFiltered()
     }
-  }
+}
 
   return (
     <S.Container background={background} position={position}>
       <S.Containerimput>
         <S.Logo src="./logo.svg" onClick={() => Router.push(`http://localhost:3000`)} />
         <S.Containersearch>
-          <S.Imput
-            onChange={(e) => SetSearch(e.target.value.toLowerCase(search))}
+          <S.Input
+            onChange={(e) => setSearch(e.target.value.toLowerCase(search))}
             type="search"
             placeholder='Buscar'
             onKeyDown={handleKeyDown}
