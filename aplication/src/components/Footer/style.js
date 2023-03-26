@@ -8,7 +8,7 @@ export const Content = styled.div`
     align-items: center;
     justify-content: space-between;
     position: relative;
-    z-index: 1 ;
+    z-index: 2;
     width: 100%;
 `
 export const Containerone = styled.div`

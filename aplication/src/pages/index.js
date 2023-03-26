@@ -3,12 +3,13 @@ import Slider from "../components/Slider";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import axios from "axios";
-import { FaBars, FaStar } from 'react-icons/fa'
+import { FaBars } from 'react-icons/fa'
 import { BiStar } from "react-icons/bi";
 import { AiOutlineLike } from "react-icons/ai";
 import Sidebar from '../components/Sidebar'
 import { useRouter } from 'next/router';
 import CardImageTitle from "../components/CardImageTitle";
+import { Drawer } from '@mui/material';
 
 import * as S from "../styles/style";
 
@@ -85,7 +86,7 @@ export default function Home() {
         <FaBars onClick={showSiderbar} color="white" size={45} cursor="pointer" />
         {sidebar && <Sidebar active={setSidebar} />}
       </S.ContainerSideBar>
-
+      
       <Header usedonbutton={animeFiltered} usedonfilter={search} setusedonfilter={SetSearch} />
 
       <S.Text><BiStar color='#F46D1B' size={27} /><span>Animes</span>Mais Populares</S.Text>

@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const ContainerSideBar = styled.div`
-    height: 317.5vh;
+    height: 100%;
     background-color: #F46D1B;
-    position: absolute;
+    position: fixed;
     width: 5.2%;
     display: flex;
     justify-content: center;
     padding: 1.4%;
+    z-index: 1;
 `
 
 export const Title = styled.div`
@@ -110,7 +111,7 @@ export const ContentImg = styled.div`
 export const ImgCat = styled.img`
     margin-top: 2em;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
 `
 
 
