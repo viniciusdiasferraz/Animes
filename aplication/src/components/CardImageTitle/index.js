@@ -1,19 +1,31 @@
 import Tooltip from '@mui/material/Tooltip';
 import { FcLike } from "react-icons/fc";
 import { FaStar } from 'react-icons/fa';
+import Router from "next/router";
+
 
 import * as S from './style';
 
 
 export default function CardImageTitle ({connection}){
+
     return (
         <S.Content>
             <S.InsideContent>
             {connection &&
                 connection.map((item) => {
                 return (
-                    <Tooltip  arrow title={
-                    <S.InsideTooltip>
+                    <Tooltip  PopperProps={{
+                        sx: {
+                          "& .MuiTooltip-tooltip": {
+                            background: "#262626",
+                            padding: 2,
+                            width: 230,
+                            height: 250
+                          }
+                        }
+                      }} arrow placement="bottom" title={
+                    <S.InsideTooltip >
                         <S.TitleTooltip>{item?.attributes?.canonicalTitle}</S.TitleTooltip>
                         <S.PercentageTooltip>{item?.attributes?.averageRating}%</S.PercentageTooltip>
                         <S.PopularityTooltip><FcLike /> # {item?.attributes?.popularityRank} Mais Popular</S.PopularityTooltip>

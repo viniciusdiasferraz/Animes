@@ -21,7 +21,16 @@ export const Text = styled.text`
     align-items: center;
     font-weight: 600;
     color: #F46D1B;
-    font-size: 1.5em
+    font-size: 1.5em;
+
+    
+    @media(max-width: 900px) {
+        margin-left: 6%;
+    }
+
+    @media(max-width: 500px) {
+        margin-left: 10%;
+    }
 `
 
 export const Content = styled.div`
@@ -73,6 +82,22 @@ export const Img = styled.img`
     width: 18.5%;
     cursor: pointer;
     margin-bottom: 4vh;
+
+    @media(max-width: 900px){
+        width: 20.5%;
+    }
+
+    @media(max-width: 695px){
+        width: 25.5%;
+    }
+
+    @media(max-width: 560px){
+        width: 33.5%;
+    }
+
+    @media(max-width: 440px){
+        width: 65.5%;
+    }
 `
 
 

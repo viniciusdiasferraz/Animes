@@ -156,7 +156,16 @@ function Category() {
                 {categorySelected &&
                     categorySelected?.data?.map((item) => {
                         return (
-                            <Tooltip style={{ backgroundColor: '#262626' }} arrow title={
+                            <Tooltip PopperProps={{
+                                sx: {
+                                    "& .MuiTooltip-tooltip": {
+                                        background: "#262626",
+                                        padding: 2,
+                                        width: 230,
+                                        height: 250
+                                    }
+                                }
+                            }} arrow placement="bottom" title={
                                 <S.InsideTooltip>
                                     <S.TitleTooltip>{item?.attributes?.canonicalTitle}</S.TitleTooltip>
                                     <S.PercentageTooltip>{item?.attributes?.averageRating}%</S.PercentageTooltip>
