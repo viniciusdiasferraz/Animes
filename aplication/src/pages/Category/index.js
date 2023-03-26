@@ -1,7 +1,6 @@
 import React from "react"
 import { useEffect, useState } from "react";
 import axios from "axios";
-import * as S from "./style";
 import Pagination from "../../components/Pagination/index";
 import qs from 'qs';
 import Footer from "../../components/Footer";
@@ -12,15 +11,15 @@ import Sidebar from "../../components/Sidebar";
 import { FcLike } from "react-icons/fc";
 import Tooltip from '@mui/material/Tooltip';
 
+import * as S from "./style";
 
-function Category() {
+export default function Category() {
     const [categorySelected, setCategorySelected] = useState();
     const [offset, setOffset] = useState(0);
     const LIMIT = 20;
     const [sidebar, setSidebar] = useState(false)
     const showSiderbar = () => setSidebar(!sidebar)
     const [screenCategory, setScreenCategory] = useState()
-
 
     let url;
     let categoryUrl;
@@ -141,7 +140,6 @@ function Category() {
         }
     }
 
-
     return (
         <>
             <S.ContainerSideBar>
@@ -196,5 +194,3 @@ function Category() {
         </>
     )
 }
-
-export default Category

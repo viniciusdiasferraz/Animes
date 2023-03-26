@@ -1,11 +1,10 @@
 import React from "react";
-import * as S from "./style";
 import { FaSistrix } from 'react-icons/fa';
+import Router from "next/router";
 
+import * as S from "./style";
 
-
-
-function Header({ usedonbutton, usedonfilter, setusedonfilter }) {
+export default function Header({ usedonbutton, usedonfilter, setusedonfilter }) {
 
     function handleKeyDown(event) {
         if (event.key === 'Enter') {
@@ -15,7 +14,7 @@ function Header({ usedonbutton, usedonfilter, setusedonfilter }) {
     return (
         <S.Container  >
             <S.Containerimput>
-                <S.Logo src="./logo.svg" />
+                <S.Logo src="./logo.svg" onClick={() => Router.push(`http://localhost:3000`)} />
                 <S.Containersearch>
                     <S.Imput
                         onChange={(e) => setusedonfilter(e.target.value.toLowerCase(usedonfilter))}
@@ -43,5 +42,3 @@ function Header({ usedonbutton, usedonfilter, setusedonfilter }) {
         </S.Container>
     )
 }
-
-export default Header

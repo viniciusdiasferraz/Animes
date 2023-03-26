@@ -49,14 +49,12 @@ export const TextTitle = styled.text`
 }
 `
 
-
-
 export const List = styled.ul`
   list-style: none;
   margin-left: 1em;
 `
+
 export const Item = styled.li`
   color: white;
   margin-bottom: 0.5em;
 `
-

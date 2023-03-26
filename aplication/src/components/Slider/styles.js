@@ -16,8 +16,14 @@ export const Body = styled.div`
   }
 `
 
+export const ImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 export const Singleimg = styled.img`
- width: 90%;
+  width: 90%;
   height: 30vh;
   margin-bottom: -3px;
   margin-left: 5em;
@@ -26,11 +32,23 @@ export const Singleimg = styled.img`
   border-top: 12px solid #34AC40;
 `
 
-export const Text = styled.text`
-background: rgba(0, 0, 0, 0.8);
-color: white;
- span{
-  text-transform: uppercase;
-  color: #F46D1B;
- }
+export const Text = styled.div`
+  background: rgba(0, 0, 0, 0.8);
+  color: white;;
+  height: 3rem;
+  width: 90.1%;
+  margin-left: 6.1%;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  justify-content: center;
+  font-weight: 400;
+  position: relative;
+  bottom: 45px;
+  span{
+    text-transform: uppercase;
+    color: #F46D1B;
+    font-weight: 700;
+  }
 `

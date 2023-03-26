@@ -2,16 +2,16 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Router from "next/router";
-import * as S from "./style";
 import Pagination from "../../components/Pagination/index";
 import AlternativeHeader from "../../components/AlternativeHeader"
 import Footer from "../../components/Footer";
-import qs from 'qs';
-import { FaBars, FaFilm, FaStar } from 'react-icons/fa';
 import Sidebar from "../../components/Sidebar";
-import { FcLike } from "react-icons/fc";
+import qs from 'qs';
 import Tooltip from '@mui/material/Tooltip';
+import { FaBars, FaFilm, FaStar } from 'react-icons/fa';
+import { FcLike } from "react-icons/fc";
 
+import * as S from "./style";
 
 
 export default function AllAnimes() {
@@ -20,12 +20,9 @@ export default function AllAnimes() {
   const [sidebar, setSidebar] = useState(false);
   const showSiderbar = () => setSidebar(!sidebar);
 
-
   const api = 'https://kitsu.io/api/edge/';
 
   const LIMIT = 20;
-
-  console.log(requestAnime, "requestAnime");
 
   useEffect(() => {
     setRequestAnime({})

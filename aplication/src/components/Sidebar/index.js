@@ -1,7 +1,7 @@
 import React from 'react'
-import * as S from "./style";
 import { FaList } from 'react-icons/fa'
 
+import * as S from "./style";
 
 const Sidebar = ({ active }) => {
 

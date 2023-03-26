@@ -3,21 +3,16 @@ import Slider from "../components/Slider";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import axios from "axios";
-import Router from "next/router";
 import { FaBars, FaStar } from 'react-icons/fa'
 import { BiStar } from "react-icons/bi";
 import { AiOutlineLike } from "react-icons/ai";
 import Sidebar from '../components/Sidebar'
 import { useRouter } from 'next/router';
-import Tooltip from '@mui/material/Tooltip';
-import { FcLike } from "react-icons/fc";
 import CardImageTitle from "../components/CardImageTitle";
 
 import * as S from "../styles/style";
 
-
 export default function Home() {
-
   const [requestAnimePopularityRank, setRequestAnimePopularityRank] = useState();
   const [requestAnimeAverageRating, setRequestAnimeAverageRating] = useState();
   const [sidebar, setSidebar] = useState(false);
@@ -36,7 +31,6 @@ export default function Home() {
   useEffect(() => {
     animemostpopular();
   }, []);
-
 
   const animeaveragerating = () => {
     axios

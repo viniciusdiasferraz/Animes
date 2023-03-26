@@ -32,7 +32,6 @@ export const Text = styled.text`
     }
 `
 
-
 export const Content = styled.div`
     width: 93%;
     display:flex;
@@ -99,7 +98,6 @@ export const Img = styled.img`
         width: 65.5%;
     }
 `
-
 
 export const ContentImg = styled.div`
     display: flex;

@@ -29,12 +29,14 @@ export const Container = styled.div`
         width: 65%;
     }
 
-    @media(max-width: 915px){
+    @media(max-width: 918px){
         margin-left: 40%;
+        width: 58%;
     }
 
     @media(max-width: 745px){
         margin-left: 44%;
+        width: 50%;
     }
 
     @media(max-width: 660px){
@@ -52,12 +54,12 @@ export const Container = styled.div`
     @media(max-width: 405px){
         margin-top: 43%;
     }
-
-
 `
+
 export const SpaceImgButton = styled.div`
 
 `
+
 export const Img = styled.img`
     top: 40%;
     left: 10%;
@@ -74,6 +76,11 @@ export const Img = styled.img`
         width: 38%;
         top: 41%;
         left: 33%;
+    }
+
+    @media(max-width: 395px){
+        width: 45%;
+        left: 28%;
     }
 `
 
@@ -108,6 +115,10 @@ export const AnimeVideo = styled.div`
 
     @media(max-width: 1115px){
         margin-left: 12%;
+    }
+
+    @media(max-width: 915px){
+        top: 90vh;
     }
 
     @media(max-width: 595px){
