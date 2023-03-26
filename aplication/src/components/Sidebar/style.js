@@ -8,8 +8,8 @@ export const Container = styled.div`
   bottom: 0px;
   width: 15em;
   animation: showSidebar .4s;
-  z-index: 20; 
   height: 100%;
+  overflow-y: scroll;
   
   @keyframes showSidebar {
     from {
@@ -18,8 +18,12 @@ export const Container = styled.div`
     }
     to {
       opacity: 1;
-      width: 300px;
+      width: 240px;
     }
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
   }
   `
 export const Text = styled.text`

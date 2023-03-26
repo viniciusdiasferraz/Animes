@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const ContainerSideBar = styled.div`
-    height: 223vh;
+    height: 100%;
     background-color: #F46D1B;
-    position: absolute;
+    position: fixed;
     width: 5.2%;
     display: flex;
     justify-content: center;
@@ -209,5 +209,5 @@ export const ContentImg = styled.div`
 export const ImgCat = styled.img`
     margin-top: 2em;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
 `

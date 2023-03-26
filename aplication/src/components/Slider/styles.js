@@ -6,7 +6,7 @@ export const Body = styled.div`
   margin: 2rem auto;
   margin-bottom: 6rem;
 
-  @media(max-width: 800px){
+  @media(max-width: 970px){
     display:none;
   }
 
@@ -50,5 +50,29 @@ export const Text = styled.div`
     text-transform: uppercase;
     color: #F46D1B;
     font-weight: 700;
+  }
+
+  @media(max-width: 1115px){
+    width: 90%;
+    margin-left: 7.3%;
+    font-size: 0.8rem;
+  }
+
+  @media(max-width: 1070px){
+    width: 90%;
+    margin-left: 7.7%;
+    font-size: 0.8rem;
+  }
+
+  @media(max-width: 1040px){
+    width: 90%;
+    margin-left: 7.9%;
+    font-size: 0.8rem;
+  }
+
+  @media(max-width: 995px){
+    width: 90%;
+    margin-left: 8.2%;
+    font-size: 0.7rem;
   }
 `
