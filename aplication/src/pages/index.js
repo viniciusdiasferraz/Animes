@@ -11,11 +11,13 @@ import Sidebar from '../components/Sidebar'
 import { useRouter } from 'next/router';
 import Tooltip from '@mui/material/Tooltip';
 import { FcLike } from "react-icons/fc";
+import CardImageTitle from "../components/CardImageTitle";
 
 import * as S from "../styles/style";
 
 
 export default function Home() {
+
   const [requestAnimePopularityRank, setRequestAnimePopularityRank] = useState();
   const [requestAnimeAverageRating, setRequestAnimeAverageRating] = useState();
   const [sidebar, setSidebar] = useState(false);
@@ -65,6 +67,9 @@ export default function Home() {
     },
   };
 
+  console.log(requestAnimeAverageRating, 'mais  vistos');
+  console.log(requestAnimePopularityRank, 'mais  populares');
+
   const animeFiltered = () => {
     if (search) {
       axios
@@ -98,57 +103,13 @@ export default function Home() {
 
       <S.Text><BiStar color='#F46D1B' size={27} /><span>Animes</span>Mais Populares</S.Text>
 
-      <S.Content>
-        <S.InsideContent>
-          {requestAnimePopularityRank &&
-            requestAnimePopularityRank.map((item) => {
-              return (
-                <Tooltip PopperProps={{ className: popperClass }} arrow title={
-                  <S.InsideTooltip>
-                    <S.TitleTooltip>{item?.attributes?.canonicalTitle}</S.TitleTooltip>
-                    <S.PercentageTooltip>{item?.attributes?.averageRating}%</S.PercentageTooltip>
-                    <S.PopularityTooltip><FcLike /> # {item?.attributes?.popularityRank} Mais Popular</S.PopularityTooltip>
-                    <S.RankTooltip><FaStar color="#FFE145" /> # {item?.attributes?.ratingRank} Melhor Classificado</S.RankTooltip>
-                    <S.SynopsisTooltip>{item?.attributes?.synopsis.substring(0, 180)}...</S.SynopsisTooltip>
-                  </S.InsideTooltip>
-                }
-                >
-                  <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
-                </Tooltip>
-              );
-            })}
-        </S.InsideContent>
-      </S.Content>
+      <CardImageTitle connection={requestAnimePopularityRank} />
 
       <Slider settings={settings} />
 
       <S.Text><AiOutlineLike color='#F46D1B' /><span>Animes</span> Mais Bem Classificados</S.Text>
 
-      <S.Content>
-        <S.InsideContent>
-          {requestAnimeAverageRating &&
-            requestAnimeAverageRating.map((item) => {
-              return (
-                <Tooltip  arrow title={
-                  <S.InsideTooltip>
-                    <S.TitleTooltip>{item?.attributes?.canonicalTitle}</S.TitleTooltip>
-                    <S.PercentageTooltip>{item?.attributes?.averageRating}%</S.PercentageTooltip>
-                    <S.PopularityTooltip><FcLike /> # {item?.attributes?.popularityRank} Mais Popular</S.PopularityTooltip>
-                    <S.RankTooltip><FaStar color="#FFE145" /> # {item?.attributes?.ratingRank} Melhor Classificado</S.RankTooltip>
-                    <S.SynopsisTooltip>{item?.attributes?.synopsis ? item?.attributes?.synopsis.substring(0, 180) : "não existe descrição"}...</S.SynopsisTooltip>
-                  </S.InsideTooltip>
-                }
-                classes={{
-                  tooltip: "backgroundColor: red"
-              
-                }}
-                >
-                  <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
-                </Tooltip>
-              );
-            })}
-        </S.InsideContent>
-      </S.Content>
+      <CardImageTitle connection={requestAnimeAverageRating} />
 
       <S.ContentImg>
         <S.ImgCat src="./yuzu 3.png" />
