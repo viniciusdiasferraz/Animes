@@ -1,8 +1,8 @@
 import Router from "next/router";
+
 import * as S from "./style";
 
-
-function footer() {
+export default function footer() {
     return (
         <S.Content>
             <S.Containerone>
@@ -23,5 +23,3 @@ function footer() {
         </S.Content>
     )
 }
-
-export default footer

@@ -1,10 +1,10 @@
-import * as S from "./style";
 import Router from "next/router";
 import { useRouter } from 'next/router';
 import { useState } from "react";
 import axios from "axios";
 import { FaSistrix } from 'react-icons/fa';
 
+import * as S from "./style";
 
 
 export default function AlternativeHeader({ background, position }) {

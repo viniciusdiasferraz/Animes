@@ -2,16 +2,15 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Footer from "../../components/Footer";
-import * as S from "./style";
 import AlternativeHeader from "../../components/AlternativeHeader";
 import Sidebar from "../../components/Sidebar";
-import { FaBars, FaStar } from 'react-icons/fa'
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
+import { FaBars, FaStar } from 'react-icons/fa'
 import { BsPlayBtnFill } from "react-icons/bs";
 import { FcLike } from "react-icons/fc";
 
-
+import * as S from "./style";
 
 export default function AnimesSelected() {
     const [animeSelected, setAnimeSelected] = useState();
@@ -22,7 +21,6 @@ export default function AnimesSelected() {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-
     const style = {
         position: 'absolute',
         top: '50%',
@@ -32,8 +30,6 @@ export default function AnimesSelected() {
         boxShadow: 24,
         bgcolor: 'black',
     };
-
-
 
     let url;
     let characterId;
@@ -54,14 +50,9 @@ export default function AnimesSelected() {
             });
     };
 
-    console.log(videoUrl, "video");
-
     useEffect(() => {
         selectAnime();
     }, []);
-
-
-    console.log(animeSelected, "resposta");
 
     return (
         <>
@@ -81,10 +72,10 @@ export default function AnimesSelected() {
                 </S.SpaceDescription>
             </S.Container>
             <S.AnimeVideo>
-                <S.Button onClick={handleOpen}><BsPlayBtnFill color="white" size={35}/>Ver Trailer</S.Button>
+                <S.Button onClick={handleOpen}><BsPlayBtnFill color="white" size={35} />Ver Trailer</S.Button>
                 <S.TextRating>Aprovado por <span>{animeSelected?.attributes?.averageRating}</span>% da Comunidade</S.TextRating>
-                <S.Textpopularity><FcLike size={20}/> #{animeSelected?.attributes?.popularityRank} Mais Popular</S.Textpopularity>
-                <S.TextRank><FaStar color="#FFE145" size={20}/> #{animeSelected?.attributes?.ratingRank} Melhor Classificado</S.TextRank>
+                <S.Textpopularity><FcLike size={20} /> #{animeSelected?.attributes?.popularityRank} Mais Popular</S.Textpopularity>
+                <S.TextRank><FaStar color="#FFE145" size={20} /> #{animeSelected?.attributes?.ratingRank} Melhor Classificado</S.TextRank>
             </S.AnimeVideo>
             <Modal
                 open={open}
@@ -102,4 +93,3 @@ export default function AnimesSelected() {
         </>
     )
 }
-

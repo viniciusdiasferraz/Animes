@@ -23,15 +23,65 @@ export const Container = styled.div`
     align-items: center;
     margin-left: 26%;
     margin-bottom: 30%;
+
+    @media(max-width: 1115px){
+        margin-left: 35%;
+        width: 65%;
+    }
+
+    @media(max-width: 918px){
+        margin-left: 40%;
+        width: 58%;
+    }
+
+    @media(max-width: 745px){
+        margin-left: 44%;
+        width: 50%;
+    }
+
+    @media(max-width: 660px){
+        margin-left: 47%;
+    }
+
+    @media(max-width: 595px){
+        margin-left: 42%;
+    }
+
+    @media(max-width: 475px){
+        margin-top: 38%;
+    }
+
+    @media(max-width: 405px){
+        margin-top: 43%;
+    }
 `
+
 export const SpaceImgButton = styled.div`
 
 `
+
 export const Img = styled.img`
     top: 40%;
     left: 10%;
     height: 50vh;
     position: absolute;
+
+    @media(max-width: 595px){
+        height: 37vh;
+        width: 30%;
+    }
+
+    @media(max-width: 475px){
+        height: 36vh;
+        width: 38%;
+        top: 41%;
+        left: 33%;
+    }
+
+    @media(max-width: 395px){
+        width: 45%;
+        left: 28%;
+    }
 `
 
 export const SpaceDescription = styled.div`
@@ -62,6 +112,19 @@ export const AnimeVideo = styled.div`
     margin-left: 10%;
     position: absolute;
     top: 86vh;
+
+    @media(max-width: 1115px){
+        margin-left: 12%;
+    }
+
+    @media(max-width: 915px){
+        top: 90vh;
+    }
+
+    @media(max-width: 595px){
+        top: 80vh;
+    }
+
 `
 export const Button = styled.button`
     width: 55%;
@@ -77,6 +140,33 @@ export const Button = styled.button`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
+    @media(max-width: 915px){
+        display: flex;
+        width: 67%;
+    }
+
+    @media(max-width: 745px){
+        width: 80%;
+    }
+
+    @media(max-width: 660px){
+        width: 90%;
+    }
+
+    @media(max-width: 540px){
+        flex-direction: column
+    }
+
+    @media(max-width: 440px){
+        height: 10vh;
+    }
+
+    @media(max-width: 405px){
+        height: 12vh;
+        width: 95%;
+    }
+
 `
 
 export const TextRating = styled.text`
@@ -89,6 +179,10 @@ export const TextRating = styled.text`
         color: #16A085;
         font-size: 1.3em;
     }
+
+    @media(max-width: 595px){
+        width: 55%; 
+    }
 `
 export const Textpopularity = styled.text`
     margin-bottom: 3vh;
@@ -99,6 +193,10 @@ export const TextRank = styled.text`
     margin-bottom: 3vh;
     font-weight: 500;
     color: #3D3D3D;
+
+    @media(max-width: 985px){
+        width: 65%;
+    }
 `
 
 export const ContentImg = styled.div`

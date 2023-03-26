@@ -30,7 +30,6 @@ const Pagination = ({
           <BsFillArrowLeftSquareFill color="#F46D1B" size={45} onClick={() => onPageChange(current - 1)}
             disabled={current === 1} />
         </S.List>
-
         <S.List>
           <BsFillArrowRightSquareFill color="#F46D1B" size={45} onClick={() => onPageChange(current + 1)}
             disabled={current === pages} />
