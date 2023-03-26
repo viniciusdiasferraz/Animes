@@ -1,35 +1,19 @@
 import styled from 'styled-components'
 
 export const Body = styled.div`
-width:100%;
-`
+  width:100%;
+  max-width: 1210px;
+  margin: 2rem auto;
+  margin-bottom: 6rem;
 
+  @media(max-width: 800px){
+    display:none;
+  }
 
-export const Line = styled.div`
-width:100%;
-background-color:#34AC40;
-height: 2.5vh;
-`
-
-
-export const Content = styled.div`
-  max-width: 1940px;
-  height: 80vh;
-  margin: 0 auto;
-  &::after{
-  color: #F46D1B;
-  margin-right: 20px;
-  height: 13em;
-  margin: 2em;
-}
-`
-
-export const Container = styled.div`
-  max-width: 1940px;
-  width: 50vw;
-  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
-  margin: -5px auto 40px;
-  display: flex;
+  .slick-dots li button:before {
+    color: #F46D1B;
+    font-size: 15px;
+  }
 `
 
 export const Singleimg = styled.img`
@@ -39,6 +23,5 @@ export const Singleimg = styled.img`
   margin-left: 6em;
   cursor: pointer;
   object-fit: cover;
+  border-top: 12px solid #34AC40;
 `
-
-
