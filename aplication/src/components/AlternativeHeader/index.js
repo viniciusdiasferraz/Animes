@@ -28,6 +28,13 @@ export default function AlternativeHeader({ background, position }) {
       alert("Digite um Anime!")
     }
   }
+
+  function handleKeyDown(event) {
+    if (event.key === 'Enter') {
+      animeFiltered()
+    }
+  }
+
   return (
     <S.Container background={background} position={position}>
       <S.Containerimput>
@@ -37,6 +44,7 @@ export default function AlternativeHeader({ background, position }) {
             onChange={(e) => SetSearch(e.target.value.toLowerCase(search))}
             type="search"
             placeholder='Buscar'
+            onKeyDown={handleKeyDown}
           />
           <FaSistrix onClick={() => { animeFiltered() }} cursor="pointer" color="white"
             style={{
