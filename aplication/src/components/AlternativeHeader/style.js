@@ -20,6 +20,11 @@ export const Containerimput = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 1em;
+
+    @media(max-width: 440px) {
+      width: 85%;
+    }
+
  `
 export const Containersearch = styled.div`
  position: relative;
@@ -44,5 +49,11 @@ export const Imput = styled.input`
    color: white;
    font-weight: 300;
  }
+
+ @media(max-width: 440px) {
+  width: 100%;
+}
+
+
 `
 

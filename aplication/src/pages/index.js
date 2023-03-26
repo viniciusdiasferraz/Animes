@@ -67,9 +67,6 @@ export default function Home() {
     },
   };
 
-  console.log(requestAnimeAverageRating, 'mais  vistos');
-  console.log(requestAnimePopularityRank, 'mais  populares');
-
   const animeFiltered = () => {
     if (search) {
       axios
@@ -87,10 +84,6 @@ export default function Home() {
       alert("Digite um Anime!")
     }
   }
-
-  const popperClass = {
-    background: 'red',
-  };
 
   return (
     <S.Container>

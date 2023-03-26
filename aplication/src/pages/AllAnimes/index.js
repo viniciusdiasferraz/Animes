@@ -7,7 +7,7 @@ import Pagination from "../../components/Pagination/index";
 import AlternativeHeader from "../../components/AlternativeHeader"
 import Footer from "../../components/Footer";
 import qs from 'qs';
-import { FaBars, FaFilm, FaStar} from 'react-icons/fa';
+import { FaBars, FaFilm, FaStar } from 'react-icons/fa';
 import Sidebar from "../../components/Sidebar";
 import { FcLike } from "react-icons/fc";
 import Tooltip from '@mui/material/Tooltip';
@@ -59,7 +59,16 @@ export default function AllAnimes() {
         {requestAnime &&
           requestAnime?.data?.map((item) => {
             return (
-              <Tooltip style={{ backgroundColor: '#262626' }} arrow title={
+              <Tooltip PopperProps={{
+                sx: {
+                  "& .MuiTooltip-tooltip": {
+                    background: "#262626",
+                    padding: 2,
+                    width: 230,
+                    height: 250
+                  }
+                }
+              }} arrow placement="bottom" title={
                 <S.InsideTooltip>
                   <S.TitleTooltip>{item?.attributes?.canonicalTitle}</S.TitleTooltip>
                   <S.PercentageTooltip>{item?.attributes?.averageRating}%</S.PercentageTooltip>
