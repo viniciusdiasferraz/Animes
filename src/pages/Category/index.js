@@ -11,7 +11,7 @@ import Sidebar from "../../components/Sidebar";
 import { FcLike } from "react-icons/fc";
 import Tooltip from '@mui/material/Tooltip';
 
-import * as S from "./style";
+import * as S from "../../styles/Category/style";
 
 export default function Category() {
     const [categorySelected, setCategorySelected] = useState();

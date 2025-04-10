@@ -10,7 +10,7 @@ import { FaBars, FaStar } from 'react-icons/fa'
 import { BsPlayBtnFill } from "react-icons/bs";
 import { FcLike } from "react-icons/fc";
 
-import * as S from "./style";
+import * as S from "../../styles/AnimesSelected/style";
 
 export default function AnimesSelected() {
     const [animeSelected, setAnimeSelected] = useState();

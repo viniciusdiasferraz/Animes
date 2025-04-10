@@ -11,7 +11,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { FaBars, FaFilm, FaStar } from 'react-icons/fa';
 import { FcLike } from "react-icons/fc";
 
-import * as S from "./style";
+import * as S from "../../styles/AllAnimes/style";
 
 
 export default function AllAnimes() {
