@@ -69,7 +69,7 @@ export default function Home() {
         .then((response) => {
           const anime = response.data.data[0];
           if (anime) {
-            router.push(`/animesselected?id=${anime.id}`);
+            router.push(`/AnimesSelected?id=${anime.id}`);
           } else {
             alert('Nenhum anime encontrado');
           }

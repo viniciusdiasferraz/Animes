@@ -18,7 +18,7 @@ export default function AlternativeHeader({ background, position, filter }) {
         .then((response) => {
           const anime = response.data.data[0];
           if (anime) {
-            router.push(`/animesselected?id=${anime.id}`);
+            router.push(`/AnimesSelected?id=${anime.id}`);
             console.log(anime, 'anime')
           } else {
             alert('Nenhum anime encontrado');
