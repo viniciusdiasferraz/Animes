@@ -32,7 +32,7 @@ export default function CardImageTitle({ connection }) {
                 </S.InsideTooltip>
               }
               >
-                <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/AnimesSelected?id=${item.id}`)} />
+                <S.Img src={item?.attributes?.posterImage.small} onClick={() => Router.push(`/animesselected?id=${item.id}`)} />
               </Tooltip>
             );
           })}

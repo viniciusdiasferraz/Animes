@@ -10,7 +10,7 @@ export default function footer() {
                     Ainda está procurando algo pra assistir?
                     <span>Confira nosso acervo completo</span>
                 </S.Text>
-                <S.Button onClick={() => Router.push(`/AllAnimes`)}>
+                <S.Button onClick={() => Router.push(`/all-animes`)}>
                     Ver Tudo
                 </S.Button>
             </S.Containerone>
